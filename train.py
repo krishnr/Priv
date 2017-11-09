@@ -14,7 +14,9 @@ for item in dataset:
     data.append(item['raw_text'])
     targets.append(item['label'])
 
-# print [[x,targets.count(x)] for x in set(targets)]
+counts =  [targets.count(x) for x in set(targets)]
+counts.sort(reverse=True)
+print counts
 
 text_clf = Pipeline([('vect', CountVectorizer()),
                       ('tfidf', TfidfTransformer()),
