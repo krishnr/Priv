@@ -32,10 +32,21 @@ def build_dataset(a_file, l_file):
             label = row[3]
             label_dataset[annotation_id] = label
 
+    return_arr = []
+    removed_labels = [
+        'The text introduces the policy, a section, or a group of practices, but it does not mention a specific practice.',
+        'The text describes a specific data practice that is not covered by our label scheme.',
+        'The policy makes generic security statements, e.g., "we protect your data" or "we use technology/encryption to protect your data".',
+        'The text describes how to contact the company with questions, concerns, or complaints about the privacy policy.',
+        'The policy makes specific provisions for international audiences, non-US citizens, or non-European citizens (e.g., about international data transfer).',
+    ]
+    
     for row in dataset_arr:
-        row['label'] = label_dataset[row['annotation_id']]
+        if label_dataset[row['annotation_id']] not in removed_labels:
+            row['label'] = label_dataset[row['annotation_id']]
+            return_arr.append(row)
 
-    return dataset_arr
+    return return_arr
 
 atlantic = build_dataset('./OPP-115/annotations/20_theatlantic.com.csv', './OPP-115/pretty_print/theatlantic.com.csv')
 summary_dataset += atlantic
