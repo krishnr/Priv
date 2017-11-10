@@ -25,16 +25,29 @@ text_clf = Pipeline([('vect', CountVectorizer()),
 
 text_clf = text_clf.fit(data, targets)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 test_data = [
     'Registration for the NYT Services may require that you supply certain personal information, including a unique email address and demographic information (ZIP code, age, sex, household income, job industry and job title) to register.',
-
-    "Billing and Credit Card Information To enable payment and donations via the NYT Services, we collect and store name, address, telephone number, email address, credit card information and other billing information",
     
     "The ads in our apps are not targeted to you based on your current GPS location, but they may be targeted to you based on your ZIP code or device's IP address.",
 
     "COPPA Compliance. The New York Times does not knowingly collect or store any personal information about children under the age of 13.",
 
-
+    "To prevent unauthorized access, maintain data accuracy and ensure the appropriate use of information, we have put in place commercially reasonable physical, technical and administrative controls to protect the information.",
 ]
 
 predicted = text_clf.predict(test_data)
