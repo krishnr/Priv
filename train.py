@@ -25,21 +25,6 @@ text_clf = Pipeline([('vect', CountVectorizer()),
 
 text_clf = text_clf.fit(data, targets)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 test_data = [
     'Registration for the NYT Services may require that you supply certain personal information, including a unique email address and demographic information (ZIP code, age, sex, household income, job industry and job title) to register.',
     
