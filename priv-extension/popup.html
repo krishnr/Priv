@@ -1,0 +1,63 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Priv - privacy, summarized</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <div class="parent">
+      <h1>Your Policy Summary</h1>
+      <div>
+        <p>Based on your preferences, here's what you need to know about <b><span id="site-title"></span></b>'s privacy policy.</p>
+      </div>
+
+      <div class="summary">
+        <h2>Collection</h2>
+        <p>Here's what you need to know</p>
+
+        <h2>Use</h2>
+        <p>Here's what you need to know</p>
+
+        <h2>Disclosure</h2>
+        <p>Here's what you need to know</p>
+
+        <h2>Choices</h2>
+        <p>Here's what you need to know</p>
+      </div>
+
+      <div class="cta">
+        <div class="button"><button>Get involved!</button></div>
+      </div>
+    </div>
+  </body>
+</html>

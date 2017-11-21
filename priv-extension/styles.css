@@ -1,0 +1,41 @@
+body {
+    width: 380px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+}
+
+div {
+    word-wrap: break-all;
+}
+
+.summary {
+    background-color: rgb(195, 226, 255);
+    margin: 0px;
+    padding: 5px;
+}
+
+.cta {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+}
+
+.parent {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 380px;
+    white-space: normal;
+}
