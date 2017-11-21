@@ -1,6 +1,5 @@
 var page_url = '';
 var page_title = '';
-var host = '';
 
 /**
  * Get the current URL.
@@ -29,10 +28,6 @@ function getCurrentTabUrl(callback) {
     var url = tab.url;
     page_url = url;
     page_title = tab.title;
-    host = page_title.split('-')[1].trim(); // Will result in host[0] == '123', host[1] == 'abc', etc. We want the latter
-    console.log(page_url);
-    console.log(page_title);
-    console.log(host);
 
     // tab.url is only available if the "activeTab" permission is declared.
     // If you want to see the URL of other tabs (e.g. after removing active:true
@@ -42,8 +37,6 @@ function getCurrentTabUrl(callback) {
 
     callback(url);
   });
-
-
 
   // Most methods of the Chrome extension APIs are asynchronous. This means that
   // you CANNOT do something like this:
@@ -67,8 +60,6 @@ function changeBackgroundColor(color) {
   // into a page. Since we omit the optional first argument "tabId", the script
   // is inserted into the active tab of the current window, which serves as the
   // default.
-  console.log("inside changeBackgroundColor");
-  console.log(color);
   chrome.tabs.executeScript({
     code: script
   });
@@ -90,61 +81,67 @@ function getSavedBackgroundColor(url, callback) {
   });
 }
 
-/**
- * Sets the given background color for url.
- *
- * @param {string} url URL for which background color is to be saved.
- * @param {string} color The background color to be saved.
- */
-function saveBackgroundColor(url, color) {
-  var items = {};
-  items[url] = color;
-  // See https://developer.chrome.com/apps/storage#type-StorageArea. We omit the
-  // optional callback since we don't need to perform any action once the
-  // background color is saved.
-  chrome.storage.sync.set(items);
-}
-
-// This extension loads the saved background color for the current tab if one
-// exists. The user can select a new background color from the dropdown for the
-// current page, and it will be saved as part of the extension's isolated
-// storage. The chrome.storage API is used for this purpose. This is different
+// The chrome.storage API is used. This is different
 // from the window.localStorage API, which is synchronous and stores data bound
 // to a document's origin. Also, using chrome.storage.sync instead of
 // chrome.storage.local allows the extension data to be synced across multiple
 // user devices.
-// document.addEventListener('load', () => {
-  //console.log("inside event listener");
 document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url) => {
     var span = document.getElementById('site-title');
-
     span.innerHTML = page_title;
-    // Load the saved background color for this page and modify the dropdown
-    // value, if needed.
-    getSavedBackgroundColor(url, (savedColor) => {
-      if (savedColor) {
-        changeBackgroundColor(savedColor);
-      }
-    });
+    displayPrivacySummary();
   });
 });
 
-function displayPrivacySummary(url) {
-  let response = 
-  ```
-  {
-    “collection”: {
-      “score”: 1, 
-      “more_info”: {
-        “label_1”: "blah1"
-        “label_2”: "blah2"
-        “label_3”: "blah3"
+function displayPrivacySummary() {
+  var response = {
+    collection: { // (What information is being collected?) (Notice, Consent)
+      score: 1, 
+      more_info: {
+        label_1: "blah1",
+        label_2: "blah2",
+        label_3: "blah3"
+      }
+    },
+    use: { // (How is this information being used?) (Purpose)
+      score: 2, 
+      more_info: {
+        label_1: "blah1",
+        label_2: "blah2",
+        label_3: "blah3"
+      }
+    }, 
+    disclosure: { // Disclosure/Information Sharing (Who has access to this data?) (Disclosure, Security)
+      score: 3, 
+      more_info: {
+        label_1: "blah1",
+        label_2: "blah2",
+        label_3: "blah3"
+      }
+    },
+    choice: { // Choices (What can you do if policy isn’t followed?) (Accountability)
+      score: 4, 
+      more_info: {
+        label_1: "blah1",
+        label_2: "blah2",
+        label_3: "blah3"
       }
     }
-  }
-  ```;
 
-  let results = JSON.parse(response);
-  console.log('results.collection ' + results.collection);
+  };
+  formatCollection(response.collection, 'collection');
+  formatCollection(response.use, 'use');
+  formatCollection(response.disclosure, 'disclosure');
+  formatCollection(response.choice, 'choice');
+}
+
+function formatCollection(data, type) {
+  var text = []
+  var labels = [data.more_info.label_1, data.more_info.label_2, data.more_info.label_3];
+
+  for (var i = 0; i < 3; i++) { // no good way to get length of object in JS so hardcore to 3
+    text[i] = document.getElementById(type + '_' + i);
+    text[i].innerHTML = "<i class='em em-point_right'></i> " + labels[i];
+  }
 }

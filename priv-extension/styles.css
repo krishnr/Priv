@@ -1,5 +1,7 @@
 body {
     width: 380px;
+    margin: 10px;
+    white-space: nowrap;
 }
 
 h1 {
@@ -8,6 +10,7 @@ h1 {
 
 h2 {
     font-size: 14px;
+    padding: 5px;
 }
 
 p {
@@ -19,7 +22,7 @@ div {
 }
 
 .summary {
-    background-color: rgb(195, 226, 255);
+    background-color: #ffffff;
     margin: 0px;
     padding: 5px;
 }
@@ -38,4 +41,25 @@ div {
     margin-bottom: 10px;
     max-width: 380px;
     white-space: normal;
+}
+
+.collection {
+    background-color: #c9d1dd;
+}
+
+.use {
+    background-color: #c9d1dd; 
+}
+
+.disclosure {
+    background-color: #c9d1dd;
+}
+
+.choice {
+    background-color: #c9d1dd;
+}
+
+.spacing {
+    padding: 1px 5px 1px 5px;
+    margin-bottom: 10px;
 }
