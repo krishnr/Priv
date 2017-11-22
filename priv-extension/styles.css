@@ -44,19 +44,30 @@ div {
 }
 
 .collection {
-    background-color: #c9d1dd;
+    /* background-color: #c9d1dd; */
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: #c9d1dd;
+    /* background-color: #fcfcfc; */
 }
 
 .use {
-    background-color: #c9d1dd; 
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: #c9d1dd;
 }
 
 .disclosure {
-    background-color: #c9d1dd;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: #c9d1dd;
 }
 
 .choice {
-    background-color: #c9d1dd;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: #c9d1dd;
+
 }
 
 .spacing {
