@@ -8,32 +8,57 @@ import numpy as np
 with open('summary_dataset.p', 'rb') as handle:
     dataset = pickle.load(handle)
 
-data = []
-targets = []
+raw_text = []
+dim_targets = []
+label_targets = []
 for item in dataset:
-    data.append(item['raw_text'])
-    targets.append(item['label'])
+    raw_text.append(item['raw_text'])
+    dim_targets.append(item['dimension'])
+    # if item['dimension'] == 'None':
+    #     label_targets.append('None')
+    # else:
+    label_targets.append(item['label'])
 
-# counts =  [targets.count(x) for x in set(targets)]
+# counts =  [label_targets.count(x) for x in set(label_targets)]
 # counts.sort(reverse=True)
 # print counts
 
-text_clf = Pipeline([('vect', CountVectorizer()),
+dim_clf = Pipeline([('vect', CountVectorizer()),
                       ('tfidf', TfidfTransformer()),
                       ('clf', MultinomialNB(fit_prior=False)),
 ])
 
-text_clf = text_clf.fit(data, targets)
+dim_clf = dim_clf.fit(raw_text, dim_targets)
 
-test_data = [
-    'Registration for the NYT Services may require that you supply certain personal information, including a unique email address and demographic information (ZIP code, age, sex, household income, job industry and job title) to register.',
-    
-    "The ads in our apps are not targeted to you based on your current GPS location, but they may be targeted to you based on your ZIP code or device's IP address.",
+label_clf = Pipeline([('vect', CountVectorizer()),
+                      ('tfidf', TfidfTransformer()),
+                      ('clf', MultinomialNB(fit_prior=False)),
+])
 
-    "COPPA Compliance. The New York Times does not knowingly collect or store any personal information about children under the age of 13.",
+label_clf = label_clf.fit(raw_text, label_targets)
 
-    "To prevent unauthorized access, maintain data accuracy and ensure the appropriate use of information, we have put in place commercially reasonable physical, technical and administrative controls to protect the information.",
-]
+# Find the right file based on the website we're on
+f = open("NYT-pp.txt", "r")
 
-predicted = text_clf.predict(test_data)
-print predicted
+def is_valid_line(line):
+    line = line.strip("\n")
+    # Assuming a heading (which we want to ignore) is less than 50 chars
+    return len(line) > 50
+
+pp_lines = []
+for line in f:
+    if is_valid_line(line):
+        pp_lines.append(line)
+
+predicted_dims = dim_clf.predict(pp_lines)
+
+relevant_lines = []
+for i, elem in enumerate(predicted_dims):
+    if elem != 'None':
+        relevant_lines.append(pp_lines[i])
+
+predicted_labels = label_clf.predict(relevant_lines)
+
+for i, elem in enumerate(predicted_labels):
+    print relevant_lines[i] + "   :   " + elem
+    print "\n"
