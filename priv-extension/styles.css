@@ -10,7 +10,6 @@ h1 {
 
 h2 {
     font-size: 14px;
-    padding: 5px;
 }
 
 p {
@@ -32,45 +31,59 @@ div {
     text-align: center;
 }
 
-.button {
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* appearance: none; */
     display: inline-block;
+    padding: 12px 24px 12px 24px;
+    background-color: rgb(31, 144, 219);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
 }
+
+button:focus {
+    outline: none;    
+}
+
+button:hover {
+    background-color: rgb(25, 127, 190);   
+}
+
 
 .parent {
     margin-top: 10px;
     margin-bottom: 10px;
     max-width: 380px;
     white-space: normal;
+    padding: 0px 12px 12px 12px;
+    font-size: 12px;
 }
 
 .collection {
     /* background-color: #c9d1dd; */
-    border-top-width: 2px;
-    border-top-style: solid;
-    border-top-color: #c9d1dd;
+    /* border-top-width: 2px; */
+    /* border-top-style: solid; */
+    /* border-top-color: #c9d1dd; */
     /* background-color: #fcfcfc; */
 }
 
 .use {
-    border-top-width: 2px;
+    border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: #c9d1dd;
+    border-top-color: #e8e8e8;
 }
 
 .disclosure {
-    border-top-width: 2px;
+    border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: #c9d1dd;
+    border-top-color: #e8e8e8;
 }
 
 .choice {
-    border-top-width: 2px;
+    border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: #c9d1dd;
+    border-top-color: #e8e8e8;
 
-}
-
-.spacing {
-    padding: 1px 5px 1px 5px;
-    margin-bottom: 10px;
 }

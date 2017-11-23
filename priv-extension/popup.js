@@ -95,6 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function displayPrivacySummary() {
+  var xhttp = new XMLHttpRequest();
+  console.log(page_url);
+  // xhttp.open("GET", "http://127.0.0.1:5000/", false);
+  // xhttp.setRequestHeader("Content-type", "application/json");
+  // xhttp.send();
+  // var banana = JSON.parse(xhttp.response)
+  
   var response = {
     collection: { // (What information is being collected?) (Notice, Consent)
       score: 1, 
@@ -128,7 +135,6 @@ function displayPrivacySummary() {
         label_3: "blah3"
       }
     }
-
   };
   formatCollection(response.collection, 'collection');
   formatCollection(response.use, 'use');
