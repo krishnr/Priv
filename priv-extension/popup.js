@@ -89,7 +89,7 @@ function getSavedBackgroundColor(url, callback) {
 document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url) => {
     var span = document.getElementById('site-title');
-    span.innerHTML = page_title;
+    span.innerHTML = getTLD(page_url);
     displayPrivacySummary(page_url);
   });
 });
@@ -103,9 +103,12 @@ function displayPrivacySummary(page_url) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         var res = JSON.parse(xhr.response);
+        // Remove disclosure entities for now
+        delete res["disclosure"];
+        //formatCollection(res.disclosure, 'disclosure');
+
         formatCollection(res.collection, 'collection');
         formatCollection(res.use, 'use');
-        formatCollection(res.disclosure, 'disclosure');
         formatCollection(res.choice, 'choice');
       } else {
         console.error(xhr.statusText);
@@ -126,10 +129,14 @@ function getTLD(url) {
 
 function formatCollection(data, type) {
   var text = []
-  var labels = [data.more_info.label_1, data.more_info.label_2, data.more_info.label_3];
 
-  for (var i = 0; i < 3; i++) { // no good way to get length of object in JS so hardcore to 3
-    text[i] = document.getElementById(type + '_' + i);
-    text[i].innerHTML = "<i class='em em-point_right'></i> " + labels[i];
-  }
+  Object.keys(data.more_info).forEach(function(key, index) {
+    text[index] = document.getElementById(type + '_' + index);
+    if (this[key] != " ") {
+      text[index].innerHTML = "<i class='em em-point_right'></i> " + this[key];
+    }
+    else {
+      text[index].style.display = "none";
+    }
+  }, data.more_info);
 }
