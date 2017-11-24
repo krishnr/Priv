@@ -69,6 +69,14 @@ summary_dataset += wapo
 thehill = build_dataset('./OPP-115/annotations/1360_thehill.com.csv', './OPP-115/pretty_print/thehill.com.csv')
 summary_dataset += thehill
 
+nyt = build_dataset('./OPP-115/annotations/26_nytimes.com.csv', './OPP-115/pretty_print/nytimes.com.csv')
+summary_dataset += nyt
+
+vox = build_dataset('./OPP-115/annotations/32_voxmedia.com.csv', './OPP-115/pretty_print/voxmedia.com.csv')
+summary_dataset += vox
+
+timeinc = build_dataset('./OPP-115/annotations/320_timeinc.com.csv', './OPP-115/pretty_print/timeinc.com.csv')
+summary_dataset += timeinc
 
 pickle.dump(summary_dataset, open('summary_dataset.p', 'wb'))
 
