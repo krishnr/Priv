@@ -95,51 +95,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function displayPrivacySummary() {
-  var xhttp = new XMLHttpRequest();
-  console.log(page_url);
-   xhttp.open("GET", "http://localhost:5000/", false);
-   xhttp.setRequestHeader("Content-type", "application/json");
-   xhttp.send();
-   var banana = JSON.parse(xhttp.response)
-  
-  var response = {
-    collection: { // (What information is being collected?) (Notice, Consent)
-      score: 1, 
-      more_info: {
-        label_1: "blah1",
-        label_2: "blah2",
-        label_3: "blah3"
-      }
-    },
-    use: { // (How is this information being used?) (Purpose)
-      score: 2, 
-      more_info: {
-        label_1: "blah1",
-        label_2: "blah2",
-        label_3: "blah3"
-      }
-    }, 
-    disclosure: { // Disclosure/Information Sharing (Who has access to this data?) (Disclosure, Security)
-      score: 3, 
-      more_info: {
-        label_1: "blah1",
-        label_2: "blah2",
-        label_3: "blah3"
-      }
-    },
-    choice: { // Choices (What can you do if policy isn’t followed?) (Accountability)
-      score: 4, 
-      more_info: {
-        label_1: "blah1",
-        label_2: "blah2",
-        label_3: "blah3"
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://localhost:5000/", true);
+  xhr.onload = function (e) {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        var res = JSON.parse(xhr.response);
+        console.log(xhr.res);
+        formatCollection(res.collection, 'collection');
+        formatCollection(res.use, 'use');
+        formatCollection(res.disclosure, 'disclosure');
+        formatCollection(res.choice, 'choice');
+      } else {
+        console.error(xhr.statusText);
       }
     }
   };
-  formatCollection(response.collection, 'collection');
-  formatCollection(response.use, 'use');
-  formatCollection(response.disclosure, 'disclosure');
-  formatCollection(response.choice, 'choice');
+  xhr.onerror = function (e) {
+    console.error(xhr.statusText);
+  };
+  xhr.send(null);
 }
 
 function formatCollection(data, type) {
