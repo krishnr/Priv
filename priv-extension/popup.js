@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function displayPrivacySummary(page_url) {
   var xhr = new XMLHttpRequest();
-  var hostname = getHostName(page_url);
+  var tld = getTLD(page_url);
 
-  xhr.open("GET", "http://localhost:5000/summarize?hostname=" + hostname, true);
+  xhr.open("GET", "http://localhost:5000/summarize?hostname=" + tld, true);
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
@@ -118,10 +118,10 @@ function displayPrivacySummary(page_url) {
   xhr.send(null);
 }
 
-function getHostName(url) {
+function getTLD(url) {
   var parse = document.createElement('a');
   parse.href = url;
-  return parse.hostname;
+  return parse.hostname.split(".")[1];
 }
 
 function formatCollection(data, type) {
