@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 policy_dict = {
     'cbc': '../policies/CBC.txt',
-    'bbc': '../policies/NPR.txt',
+    'bbc': '../policies/BBC.txt',
     'nytimes': '../policies/NYT.txt',
     'thestar': '../policies/TO-star.txt',
     'npr': '../policies/NPR.txt',
@@ -33,7 +33,7 @@ def summarize():
     def is_valid_line(line):
         line = line.strip("\n")
         # Assuming a heading (which we want to ignore) is less than 50 chars
-        return len(line) > 50
+        return len(line) > 100
 
     pp_lines = []
     for line in f:

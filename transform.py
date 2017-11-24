@@ -3,6 +3,7 @@ import json
 import pickle
 
 summary_dataset = []
+test_dataset = []
 
 dim_map = {
     'First Party Collection/Use': 'Collection',
@@ -51,6 +52,7 @@ def build_dataset(a_file, l_file):
         'The policy makes generic security statements, e.g., "we protect your data" or "we use technology/encryption to protect your data".',
         'The text describes how to contact the company with questions, concerns, or complaints about the privacy policy.',
         'The policy makes specific provisions for international audiences, non-US citizens, or non-European citizens (e.g., about international data transfer).',
+        'The text does not fit into our label scheme.',
     ]
     
     for row in dataset_arr:
@@ -69,18 +71,29 @@ summary_dataset += wapo
 thehill = build_dataset('./OPP-115/annotations/1360_thehill.com.csv', './OPP-115/pretty_print/thehill.com.csv')
 summary_dataset += thehill
 
-nyt = build_dataset('./OPP-115/annotations/26_nytimes.com.csv', './OPP-115/pretty_print/nytimes.com.csv')
-summary_dataset += nyt
-
 vox = build_dataset('./OPP-115/annotations/32_voxmedia.com.csv', './OPP-115/pretty_print/voxmedia.com.csv')
 summary_dataset += vox
 
 timeinc = build_dataset('./OPP-115/annotations/320_timeinc.com.csv', './OPP-115/pretty_print/timeinc.com.csv')
 summary_dataset += timeinc
 
+nyt = build_dataset('./OPP-115/annotations/26_nytimes.com.csv', './OPP-115/pretty_print/nytimes.com.csv')
+test_dataset += nyt
+
+daily_news = build_dataset('./OPP-115/annotations/1683_dailynews.com.csv', './OPP-115/pretty_print/dailynews.com.csv')
+test_dataset += daily_news
+
+post_gazette = build_dataset('./OPP-115/annotations/1610_post-gazette.com.csv', './OPP-115/pretty_print/post-gazette.com.csv')
+test_dataset += post_gazette
+
 pickle.dump(summary_dataset, open('summary_dataset.p', 'wb'))
+pickle.dump(test_dataset, open('test_dataset.p', 'wb'))
 
 with open('summary_dataset.p', 'rb') as handle:
     dataset = pickle.load(handle)
 
+with open('test_dataset.p', 'rb') as test_handle:
+    test_dataset = pickle.load(test_handle)
+
 print dataset
+print test_dataset

@@ -1111,1318 +1111,1315 @@ g2
 sS'An unnamed third party does receive your unspecified personal information for personalization or customization. The data is aggregated or anonymized.'
 p374
 g5
-sS'The text does not fit into our label scheme.'
-p375
-g19
 sS'An unnamed third party does collect on the first party website or app your unspecified personal information for an unspecified purpose. You can choose not to use the service or feature for the collection or sharing of your information.'
-p376
+p375
 g5
 sS'An unnamed third party does not receive your contact information for a purpose outside of our label scheme. You can opt in for data collection for the collection or sharing and use of your information.'
-p377
+p376
 g5
 sS"When a change of an unspecified nature is made to the privacy policy, users are notified when visiting the website. Users' choices regarding policy changes are not mentioned or are unclear."
-p378
+p377
 g7
 sS'The site collects your unspecified information for service operations or security. Collection happens on the website.'
-p379
+p378
 g2
 sS'You can opt in for the use of user profile by a third party, which collects or receives it for an unspecified purpose.'
-p380
+p379
 g7
 sS'The site collects your location information for an additional (non-basic) service or feature. Collection happens in the mobile app. You can choose not to use the service or feature.'
-p381
+p380
 g2
 sS'An unnamed third party does receive your unspecified personal information for analytics or research. The data is personally identifiable. You can opt out by contacting the company for the use of your information.'
-p382
+p381
 g5
 sS'The site collects your IP address or device IDs for analytics or research. Collection happens by some means outside of our label scheme.'
-p383
+p382
 g2
 sS'The site collects your website activities for an unspecified purpose. Collection happens in an unspecified way.'
-p384
+p383
 g2
 sS'The site collects your IP address or device IDs for advertising. Collection happens on the website.'
-p385
+p384
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens when you implicitly provide information on the website. You can configure your privacy with third-party user settings.'
-p386
+p385
 g2
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way.'
-p387
+p386
 g2
 sS'A named third party does receive your unspecified personal information for an unspecified purpose.'
-p388
+p387
 g5
 sS'You can opt out (via a link) from the use of information of a type not covered by our label scheme by a third party, which collects or receives it for an unspecified purpose.'
-p389
+p388
 g7
 sS'The site collects your contact information for personalization or customization. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable.'
-p390
+p389
 g2
 sS'The site collects your IP address or device IDs for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way. You can choose not to use the service or feature.'
-p391
+p390
 g2
 sS'The site collects your unspecified information for analytics or research. Collection happens by some means outside of our label scheme.'
-p392
+p391
 g2
 sS'The company/organization has a privacy or security program/organization in place addressing, for example, how to protect data against unauthorized access or privacy training for employees.'
-p393
+p392
 g17
 sS'A named third party does receive your survey data for targeted advertising. The data is aggregated or anonymized.'
-p394
+p393
 g5
 sS'The site collects your demographic information for an unspecified purpose. Collection happens when you explicitly provide information on the website, and your data is identifiable.'
-p395
+p394
 g2
 sS'The site collects your cookies or tracking elements for a basic service or feature. Collection happens in an unspecified way.'
-p396
+p395
 g2
 sS'Users with accounts can edit their information, within the scope of information explicitly provided by the user.'
-p397
+p396
 g19
 sS'An unnamed third party does do something unspecified with your cookies or tracking elements for an unspecified purpose. You can configure your privacy with browser settings.'
-p398
+p397
 g5
 sS'An unspecified third party does receive your unspecified personal information for mergers or acquisitions.'
-p399
+p398
 g5
 sS'The site collects your contact information for marketing purposes. Collection happens on the website, and your data is identifiable. You can opt out using the provided link.'
-p400
+p399
 g2
 sS'The site collects your cookies or tracking elements for analytics or research. Collection happens when you implicitly provide information in an unspecified way.'
-p401
+p400
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens by other parts of the company or affiliates.'
-p402
+p401
 g2
 sS"A user's unspecified information is retained for a limited (but unspecified) period of time to fulfill an unspecified purpose."
-p403
+p402
 g17
 sS'The site collects your demographic information for a basic service or feature. Collection happens in an unspecified way, and your data is identifiable.'
-p404
+p403
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens on the website.'
-p405
+p404
 g2
 sS'The site collects your cookies or tracking elements for advertising. Collection happens when you implicitly provide information on the website, and your data is aggregated or anonymized. You can configure your privacy with browser settings.'
-p406
+p405
 g2
 sS"A user's generic personal information is retained for a limited (but unspecified) period of time to meet legal or law enforcement requirements, and then it is deleted.."
-p407
+p406
 g17
 sS'The site collects your user profile for advertising. Collection happens when you explicitly provide information in an unspecified way.'
-p408
+p407
 g2
 sS'Users with accounts can view their information, within the scope of transactional data (e.g., online activity, purchases).'
-p409
+p408
 g19
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens by some means outside of our label scheme for users with accounts.'
-p410
+p409
 g2
 sS'The site collects your generic personal information for legal requirements. Collection happens when you implicitly provide information in an unspecified way.'
-p411
+p410
 g2
 sS'The site collects your cookies or tracking elements for an additional (non-basic) service or feature. Collection happens when you implicitly provide information in an unspecified way for users with accounts, and your data is identifiable. You can configure your privacy with browser settings for the collection of your information.'
-p412
+p411
 g2
 sS'An unspecified third party does receive your unspecified personal information for service operations or security.'
-p413
+p412
 g5
 sS'The site collects your generic personal information for an additional (non-basic) service or feature. Collection happens by some means outside of our label scheme.'
-p414
+p413
 g2
 sS'A named third party does receive your unspecified personal information for a basic service or feature. The data is personally identifiable.'
-p415
+p414
 g5
 sS'The public does see your unspecified personal information for an additional (non-basic) service or feature.'
-p416
+p415
 g5
 sS'When a change of an unspecified nature is made to the privacy policy, the policy date is updated or information about the change is posted as part of the policy. Users can participate in a process to influence the change.'
-p417
+p416
 g7
 sS'The site collects your generic personal information for service operations or security. Collection happens when you implicitly provide information in an unspecified way.'
-p418
+p417
 g2
 sS'An unnamed third party does collect on the first party website or app your cookies or tracking elements for targeted advertising. The data is aggregated or anonymized.'
-p419
+p418
 g5
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens when you implicitly provide information by other websites.'
-p420
+p419
 g2
 sS'When a change of an unspecified nature is made to the privacy policy, the policy date is updated or information about the change is posted as part of the policy. Users have no options regarding the change.'
-p421
+p420
 g7
 sS'When a change of an unspecified nature is made to the privacy policy, users are notified in an unspecified manner. Users have no options regarding the change.'
-p422
+p421
 g7
 sS'An unnamed third party does receive unspecified information about you for marketing purposes. This applies to a user type outside of our label scheme. You can opt out by contacting the company for the collection or sharing of your information.'
-p423
+p422
 g5
 sS'The site collects your cookies or tracking elements for service operations or security. Collection happens by some means outside of our label scheme.'
-p424
+p423
 g2
 sS'The site collects your IP address or device IDs for a basic service or feature. Collection happens in an unspecified way.'
-p425
+p424
 g2
 sS'The site collects your unspecified information for marketing purposes. Collection happens when you implicitly provide information in an unspecified way.'
-p426
+p425
 g2
 sS'An unnamed third party does receive unspecified information about you for legal requirements.'
-p427
+p426
 g5
 sS'Other users does see your unspecified personal information for a purpose outside of our label scheme.'
-p428
+p427
 g5
 sS'When a change of an unspecified nature is made to the privacy policy, users receive no notification. Users have no options regarding the change.'
-p429
+p428
 g7
 sS'A named third party does collect on the first party website or app your unspecified personal information for an additional (non-basic) service or feature.'
-p430
+p429
 g5
 sS'An unspecified third party does not receive unspecified information about you for an unspecified purpose. The data is personally identifiable. You can opt in for data collection.'
-p431
+p430
 g5
 sS'The site collects your cookies or tracking elements for analytics or research. Collection happens when you implicitly provide information on the website. You can configure your privacy with browser settings.'
-p432
+p431
 g2
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens on the website, and your data is identifiable.'
-p433
+p432
 g2
 sS'An unspecified third party does not receive unspecified information about you for an unspecified purpose. The data is aggregated or anonymized.'
-p434
+p433
 g5
 sS'When a change of an unspecified nature is made to the privacy policy, users are personally notified. Users have no options regarding the change.'
-p435
+p434
 g7
 sS'The site collects your computer information for personalization or customization. Collection happens in an unspecified way.'
-p436
+p435
 g2
 sS'The site collects your cookies or tracking elements for marketing purposes. Collection happens in an unspecified way, and your data is aggregated or anonymized.'
-p437
+p436
 g2
 sS'An unspecified third party does receive unspecified information about you for service operations or security.'
-p438
+p437
 g5
 sS'You can choose not to use a service or feature to avoid the use of cookies and tracking elements by an unspecified party for a basic service or feature.'
-p439
+p438
 g7
 sS'A named third party does not receive unspecified information about you for targeted advertising. The data is personally identifiable.'
-p440
+p439
 g5
 sS'A named third party does collect on the first party website or app your activities on the website or app for targeted advertising.'
-p441
+p440
 g5
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way.'
-p442
+p441
 g2
 sS'The site collects your contact information for an additional (non-basic) service or feature. Collection happens when you explicitly provide information in an unspecified way. You can opt in for data collection for the collection of your information.'
-p443
+p442
 g2
 sS'Another part of the company or institution does receive unspecified information about you for an unspecified purpose.'
-p444
+p443
 g5
 sS'An unnamed third party does receive your unspecified personal information for an unspecified purpose. You can opt in for data collection.'
-p445
+p444
 g5
 sS'A user can access, edit, or delete personal information in an unspecified manner, within the scope of unspecified user information.'
-p446
+p445
 g19
 sS'The site collects your generic personal information for analytics or research. Collection happens when you explicitly provide information on the website, and your data is identifiable.'
-p447
+p446
 g2
 sS"When a change of an unspecified nature is made to the privacy policy, users receive no notification. Users' choices regarding policy changes are not mentioned or are unclear."
-p448
+p447
 g7
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way, and your data is aggregated or anonymized.'
-p449
+p448
 g2
 sS'When a change of an unspecified nature is made to the privacy policy, users are notified when visiting the website. Users have no options regarding the change.'
-p450
+p449
 g7
 sS'Another part of the company or institution does receive unspecified information about you for service operations or security. The data is personally identifiable.'
-p451
+p450
 g5
 sS'The site collects your website activities for analytics or research. Collection happens when you implicitly provide information on the website, and your data is aggregated or anonymized.'
-p452
+p451
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable.'
-p453
+p452
 g2
 sS'The site collects your generic personal information for marketing purposes. Collection happens by some means outside of our label scheme.'
-p454
+p453
 g2
 sS'A named third party does receive information about you not covered by our label scheme for marketing purposes. You can configure your privacy using a method outside our label scheme.'
-p455
+p454
 g5
 sS'The site collects an information type outside of our label scheme for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way for users with accounts.'
-p456
+p455
 g2
 sS'You can opt out (via a link) from the use of contact information by an unspecified party for an unspecified purpose.'
-p457
+p456
 g7
 sS'The site collects your demographic information for personalization or customization. Collection happens when you implicitly provide information by an unnamed service or third party, and your data is identifiable.'
-p458
+p457
 g2
 sS'An unnamed third party does do something unspecified with your cookies or tracking elements for analytics or research.'
-p459
+p458
 g5
 sS'An unnamed third party does collect on the first party website or app your unspecified personal information for marketing purposes. You can choose not to use the service or feature.'
-p460
+p459
 g5
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you explicitly provide information on the website.'
-p461
+p460
 g2
 sS'You can make no specified choices about the use of unspecified information by the site, which uses it for legal requirements.'
-p462
+p461
 g7
 sS'The site collects your contact information for a basic service or feature. Collection happens when you explicitly provide information by some means outside of our label scheme. You can opt in for data collection for the collection of your information.'
-p463
+p462
 g2
 sS'A named third party does do something unspecified with your IP address or device IDs for targeted advertising.'
-p464
+p463
 g5
 sS'The site collects your location information for an unspecified purpose. Collection happens when you implicitly provide information on the website.'
-p465
+p464
 g2
 sS'An unnamed third party does do something unspecified with your computer information for targeted advertising.'
-p466
+p465
 g5
 sS'An unnamed third party does track on the first party website or app your cookies or tracking elements for a basic service or feature.'
-p467
+p466
 g5
 sS"When a change of an unspecified nature is made to the privacy policy, users are notified in an unspecified manner. Users' choices regarding policy changes are not mentioned or are unclear."
-p468
+p467
 g7
 sS'The site collects your cookies or tracking elements for personalization or customization. Collection happens when you implicitly provide information on the website. You can configure your privacy with browser settings.'
-p469
+p468
 g2
 sS'You can make no specified choices about the use of unspecified information by a third party, which collects or receives it for advertising.'
-p470
+p469
 g7
 sS'You can use privacy configuration settings (in your browser or on your device) to control the use of cookies and tracking elements by the site, which collects it for a basic service or feature.'
-p471
+p470
 g7
 sS'A user can delete their account (although the company or organization may continue to keep some data), within the scope of information explicitly provided by the user.'
-p472
+p471
 g19
 sS'An unnamed third party does receive your unspecified personal information for targeted advertising. The data is personally identifiable. You can opt out by contacting the company for the use of your information.'
-p473
+p472
 g5
 sS'You can opt out (via a link) from the use of contact information by a third party, which collects or receives it for an unspecified purpose.'
-p474
+p473
 g7
 sS'Another part of the company or institution does receive your unspecified personal information for legal requirements. The data is personally identifiable.'
-p475
+p474
 g5
 sS'The site collects your survey data for an unspecified purpose. Collection happens by other websites.'
-p476
+p475
 g2
 sS'The site collects your website activities for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way.'
-p477
+p476
 g2
 sS'The site collects your computer information for an unspecified purpose. Collection happens when you implicitly provide information on the website.'
-p478
+p477
 g2
 sS'The site collects your IP address or device IDs for an additional (non-basic) service or feature. Collection happens in an unspecified way.'
-p479
+p478
 g2
 sS'The site collects your computer information for service operations or security. Collection happens when you implicitly provide information in an unspecified way.'
-p480
+p479
 g2
 sS'The site collects your location information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way.'
-p481
+p480
 g2
 sS"The site collects your cookies or tracking elements for an unspecified purpose. Collection happens when you implicitly provide information on the website, and your data's identifiability is not covered by our label scheme."
-p482
+p481
 g2
 sS'Another part of the company or institution does see your unspecified personal information for service operations or security. The data is personally identifiable.'
-p483
+p482
 g5
 sS'A user can access, edit, or delete personal information in a manner not covered by our label scheme, within the scope of information explicitly provided by the user.'
-p484
+p483
 g19
 sS'A named third party does not collect on the first party website or app your location information for an unspecified purpose. You can opt in for data collection.'
-p485
+p484
 g5
 sS'The site collects your financial information for an unspecified purpose. Collection happens on the website, and your data is aggregated or anonymized.'
-p486
+p485
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you explicitly provide information on the website. You can opt in for data collection for the collection of your information.'
-p487
+p486
 g2
 sS'A named third party does do something unspecified with your survey data for an unspecified purpose.'
-p488
+p487
 g5
 sS'You can use privacy configuration settings (in the website or app) to control the use of contact information by the site, which uses it for a purpose outside of our label scheme.'
-p489
+p488
 g7
 sS'The site collects your IP address or device IDs for personalization or customization. Collection happens in an unspecified way.'
-p490
+p489
 g2
 sS'The site collects your cookies or tracking elements for advertising. Collection happens when you implicitly provide information on other websites.'
-p491
+p490
 g2
 sS'The site collects your contact information for a basic service or feature. Collection happens when you explicitly provide information in an unspecified way for users with accounts. You can opt in for data collection for the collection of your information.'
-p492
+p491
 g2
 sS'You can use privacy configuration settings (in your browser or on your device) to control the use of location information by the site, which collects it for an additional (non-basic) service or feature.'
-p493
+p492
 g7
 sS'A named third party does receive unspecified information about you for a basic service or feature.'
-p494
+p493
 g5
 sS'The site collects your website activities for an unspecified purpose. Collection happens by an unnamed service or third party.'
-p495
+p494
 g2
 sS'The site collects your cookies or tracking elements for personalization or customization. Collection happens when you implicitly provide information in an unspecified way.'
-p496
+p495
 g2
 sS'The site collects your cookies or tracking elements for analytics or research. Collection happens on the website. You can configure your privacy with browser settings.'
-p497
+p496
 g2
 sS'A named third party does receive your unspecified personal information for service operations or security. The data is personally identifiable.'
-p498
+p497
 g5
 sS'An unnamed third party does receive your survey data for an unspecified purpose. The data is aggregated or anonymized.'
-p499
+p498
 g5
 sS'You can use third party privacy settings to control the use of cookies and tracking elements by an unspecified party for an unspecified purpose.'
-p500
+p499
 g7
 sS'The site collects your IP address or device IDs for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way.'
-p501
+p500
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable. You can opt in for data collection.'
-p502
+p501
 g2
 sS'You can opt out (by contacting the company) from the use of unspecified information by the site, which uses it for an unspecified purpose.'
-p503
+p502
 g7
 sS'The site collects your financial information for an unspecified purpose. Collection happens in an unspecified way.'
-p504
+p503
 g2
 sS'The site collects your website activities for analytics or research. Collection happens in an unspecified way.'
-p505
+p504
 g2
 sS'The site collects your generic personal information for personalization or customization. Collection happens when you implicitly provide information in an unspecified way.'
-p506
+p505
 g2
 sS'You can use privacy configuration settings (in your browser or on your device) to control the use of unspecified information by an unspecified party for an unspecified purpose.'
-p507
+p506
 g7
 sS'An unspecified third party does not receive your unspecified personal information for an unspecified purpose. The data is personally identifiable.'
-p508
+p507
 g5
 sS'The site collects an information type outside of our label scheme for an unspecified purpose. Collection happens by other websites.'
-p509
+p508
 g2
 sS'You can use privacy configuration settings (in the website or app) to control the use of contact information by the site, which uses it for marketing purposes.'
-p510
+p509
 g7
 sS'The site collects your website activities for marketing purposes. Collection happens by a named service or third party.'
-p511
+p510
 g2
 sS'An unnamed third party does track on the first party website or app your activities on the website or app for targeted advertising.'
-p512
+p511
 g5
 sS'The site collects your cookies or tracking elements for advertising. Collection happens by some means outside of our label scheme.'
-p513
+p512
 g2
 sS'The site collects your generic personal information for personalization or customization. Collection happens when you implicitly provide information on the website, and your data is identifiable.'
-p514
+p513
 g2
 sS'An unnamed third party does receive your unspecified personal information for targeted advertising. The data is personally identifiable.'
-p515
+p514
 g5
 sS'An unnamed third party does receive your cookies or tracking elements for analytics or research.'
-p516
+p515
 g5
 sS'The site collects your IP address or device IDs for service operations or security. Collection happens when you implicitly provide information in an unspecified way.'
-p517
+p516
 g2
 sS'The site collects your cookies or tracking elements for personalization or customization. Collection happens in an unspecified way.'
-p518
+p517
 g2
 sS"A user's contact information is retained for a limited (but unspecified) period of time to perform a requested service, and then it is deleted.."
-p519
+p518
 g17
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens by an unnamed service or third party.'
-p520
+p519
 g2
 sS'The site collects your demographic information for an unspecified purpose. Collection happens in an unspecified way.'
-p521
+p520
 g2
 sS'When a change is made to the privacy policy that significantly affects data practices, users are notified in a manner outside of our label scheme. Users have no options regarding the change.'
-p522
+p521
 g7
 sS'A named third party does track on the first party website or app your cookies or tracking elements for targeted advertising. You can configure your privacy with third-party user settings.'
-p523
+p522
 g5
 sS'The site collects your unspecified information for a basic service or feature. Collection happens in an unspecified way.'
-p524
+p523
 g2
 sS'The site collects your location information for advertising. Collection happens when you implicitly provide information on the website.'
-p525
+p524
 g2
 sS'An unnamed third party does receive unspecified information about you for an additional (non-basic) service or feature. You can opt in for data collection.'
-p526
+p525
 g5
 sS'An unnamed third party does not receive your contact information for an additional (non-basic) service or feature.'
-p527
+p526
 g5
 sS'The site collects your generic personal information for marketing purposes. Collection happens by an unnamed service or third party, and your data is identifiable.'
-p528
+p527
 g2
 sS'A named third party does track on the first party website or app your activities on the website or app for targeted advertising.'
-p529
+p528
 g5
 sS'The site collects your generic personal information for a basic service or feature. Collection happens when you explicitly provide information in an unspecified way. You can opt in for data collection for the collection of your information.'
-p530
+p529
 g2
 sS'You can opt in for the use of contact information by a third party, which collects or receives it for an unspecified purpose.'
-p531
+p530
 g7
 sS'The site collects your cookies or tracking elements for a purpose outside of our label scheme. Collection happens when you implicitly provide information on the website, and your data is identifiable.'
-p532
+p531
 g2
 sS'The site collects your generic personal information for marketing purposes. Collection happens on the website.'
-p533
+p532
 g2
 sS'The site collects your generic personal information for an additional (non-basic) service or feature. Collection happens on the website.'
-p534
+p533
 g2
 sS'The site collects your location information for advertising. Collection happens when you explicitly provide information in an unspecified way.'
-p535
+p534
 g2
 sS'A named third party does receive your unspecified personal information for mergers or acquisitions. The data is personally identifiable.'
-p536
+p535
 g5
 sS'You can use third party privacy settings to control the use of unspecified information by an unspecified party for advertising.'
-p537
+p536
 g7
 sS'A user can delete their account (although the company or organization may continue to keep some data), within the scope of unspecified user information.'
-p538
+p537
 g19
 sS'The site collects your generic personal information for advertising. Collection happens when you explicitly provide information in an unspecified way.'
-p539
+p538
 g2
 sS'The site collects your unspecified information for a basic service or feature. Collection happens in an unspecified way, and your data is identifiable.'
-p540
+p539
 g2
 sS'A named third party does collect on the first party website or app your cookies or tracking elements for an additional (non-basic) service or feature.'
-p541
+p540
 g5
 sS'A named third party does receive your unspecified personal information for an unspecified purpose. You can choose not to use the service or feature.'
-p542
+p541
 g5
 sS'Another part of the company or institution does not do something outside of our label scheme with your unspecified personal information for a basic service or feature. The data is personally identifiable.'
-p543
+p542
 g5
 sS'You can make no specified choices about the use of unspecified information by the site, which uses it for a basic service or feature.'
-p544
+p543
 g7
 sS'The site collects your survey data for an unspecified purpose. Collection happens when you explicitly provide information by some means outside of our label scheme.'
-p545
+p544
 g2
 sS'The site collects your demographic information for a basic service or feature. Collection happens when you explicitly provide information in an unspecified way.'
-p546
+p545
 g2
 sS'An unnamed third party does not receive your unspecified personal information for an unspecified purpose.'
-p547
+p546
 g5
 sS'The site collects your generic personal information for service operations or security. Collection happens on the website.'
-p548
+p547
 g2
 sS'The site collects your contact information for a basic service or feature. Collection happens in an unspecified way.'
-p549
+p548
 g2
 sS'The site does not collect your unspecified information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable.'
-p550
+p549
 g2
 sS'An unnamed third party does collect on the first party website or app your computer information for an unspecified purpose.'
-p551
+p550
 g5
 sS'The site collects your contact information for an additional (non-basic) service or feature. Collection happens by some means outside of our label scheme.'
-p552
+p551
 g2
 sS'An unnamed third party does track on the first party website or app your cookies or tracking elements for an unspecified purpose.'
-p553
+p552
 g5
 sS'The site collects your cookies or tracking elements for analytics or research. Collection happens on the website.'
-p554
+p553
 g2
 sS'A named third party does collect on the first party website or app your unspecified personal information for an unspecified purpose.'
-p555
+p554
 g5
 sS'The site collects your website activities for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way.'
-p556
+p555
 g2
 sS'An unnamed third party does receive your unspecified personal information for mergers or acquisitions.'
-p557
+p556
 g5
 sS'The site collects your contact information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way for users with accounts.'
-p558
+p557
 g2
 sS'You can opt out (via a link) from the use of unspecified information by the site, which uses it for marketing purposes.'
-p559
+p558
 g7
 sS'The site collects your computer information for an unspecified purpose. Collection happens on the website, and your data is aggregated or anonymized.'
-p560
+p559
 g2
 sS'The site collects your generic personal information for an additional (non-basic) service or feature. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable. You can opt in for data collection for the collection of your information.'
-p561
+p560
 g2
 sS'A user with an account can opt out (by contacting the company) from the use of contact information by the site, which uses it for marketing purposes.'
-p562
+p561
 g7
 sS'An unnamed third party does receive your unspecified personal information for an unspecified purpose. The data is personally identifiable.'
-p563
+p562
 g5
 sS'The site collects your generic personal information for a basic service or feature. Collection happens when you explicitly provide information on the website for users with accounts, and your data is identifiable.'
-p564
+p563
 g2
 sS'The site collects your generic personal information for a basic service or feature. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable.'
-p565
+p564
 g2
 sS'The site collects your unspecified information for personalization or customization. Collection happens when you implicitly provide information in an unspecified way for users with accounts.'
-p566
+p565
 g2
 sS'The site does not collect your generic personal information for an unspecified purpose. Collection happens in an unspecified way.'
-p567
+p566
 g2
 sS'The site collects your user profile for personalization or customization. Collection happens when you implicitly provide information on the website for users with accounts, and your data is identifiable.'
-p568
+p567
 g2
 sS'You can make a choice about your privacy not described by our label scheme the use of unspecified information by a third party, which collects or receives it for an unspecified purpose.'
-p569
+p568
 g7
 sS'A named third party does do something unspecified with your unspecified personal information for an unspecified purpose. The data is personally identifiable.'
-p570
+p569
 g5
 sS'The site collects your computer information for analytics or research. Collection happens on the website.'
-p571
+p570
 g2
 sS'An unnamed third party does receive unspecified information about you for an unspecified purpose. The data is personally identifiable.'
-p572
+p571
 g5
 sS'The site collects your demographic information for an unspecified purpose. Collection happens in an unspecified way, and your data is aggregated or anonymized.'
-p573
+p572
 g2
 sS'The site collects your website activities for marketing purposes. Collection happens when you implicitly provide information by an unnamed service or third party.'
-p574
+p573
 g2
 sS'You can opt out (by contacting the company) from the use of generic personal information by the site, which uses it for an unspecified purpose.'
-p575
+p574
 g7
 sS'The site collects your cookies or tracking elements for personalization or customization. Collection happens when you implicitly provide information on the website.'
-p576
+p575
 g2
 sS'An unnamed third party does track on the first party website or app unspecified information about you for targeted advertising.'
-p577
+p576
 g5
 sS'A user can edit their information, within the scope of unspecified user information.'
-p578
+p577
 g19
 sS'The site collects your website activities for an unspecified purpose. Collection happens when you implicitly provide information on the website, and your data is aggregated or anonymized.'
-p579
+p578
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way. You can choose not to use the service or feature for the collection and use of your information.'
-p580
+p579
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens when you explicitly provide information on the website. You can configure your privacy with browser settings.'
-p581
+p580
 g2
 sS'An unnamed third party does track on the first party website or app your cookies or tracking elements for an unspecified purpose. The data is aggregated or anonymized.'
-p582
+p581
 g5
 sS'The site does not collect your location information for an unspecified purpose. Collection happens when you explicitly provide information on the website.'
-p583
+p582
 g2
 sS'The public does see your user profile for marketing purposes. This applies to users with accounts. You can opt in for data collection.'
-p584
+p583
 g5
 sS'The site does not collect your contact information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way. You can opt in for data collection for the collection of your information.'
-p585
+p584
 g2
 sS'The site collects your website activities for an unspecified purpose. Collection happens by other websites.'
-p586
+p585
 g2
 sS'The site collects your generic personal information for an additional (non-basic) service or feature. Collection happens on the website. You can choose not to use the service or feature.'
-p587
+p586
 g2
 sS'The public does do something outside of our label scheme with unspecified information about you for an unspecified purpose. You can opt in for data collection for the collection or sharing and use of your information.'
-p588
+p587
 g5
 sS'An unnamed third party does not receive your contact information for an unspecified purpose. This applies to users without accounts.'
-p589
+p588
 g5
 sS'The site collects your generic personal information for analytics or research. Collection happens in an unspecified way.'
-p590
+p589
 g2
 sS'You can opt out (by contacting the company) from the use of unspecified information by a third party, which uses it for marketing purposes.'
-p591
+p590
 g7
 sS'The site collects your unspecified information for advertising. Collection happens when you implicitly provide information by some means outside of our label scheme.'
-p592
+p591
 g2
 sS"When a change of an unspecified nature is made to the privacy policy, the policy date is updated or information about the change is posted as part of the policy. Users' choices regarding policy changes are not mentioned or are unclear."
-p593
+p592
 g7
 sS'The site collects your website activities for an unspecified purpose. Collection happens by some means outside of our label scheme.'
-p594
+p593
 g2
 sS'An unspecified third party does receive your unspecified personal information for legal requirements.'
-p595
+p594
 g5
 sS'An unnamed third party does receive your cookies or tracking elements for service operations or security.'
-p596
+p595
 g5
 sS'The site collects your website activities for advertising. Collection happens in an unspecified way.'
-p597
+p596
 g2
 sS'The public does see unspecified information about you for marketing purposes. This applies to users with accounts. You can opt in for data collection.'
-p598
+p597
 g5
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens in an unspecified way.'
-p599
+p598
 g2
 sS'The site collects your generic personal information for marketing purposes. Collection happens when you implicitly provide information in an unspecified way.'
-p600
+p599
 g2
 sS'The site collects your unspecified information for analytics or research. Collection happens when you implicitly provide information by some means outside of our label scheme.'
-p601
+p600
 g2
 sS'The site collects your website activities for advertising. Collection happens by a named service or third party, and your data is aggregated or anonymized.'
-p602
+p601
 g2
 sS'A named third party does track on the first party website or app your IP address or device IDs for targeted advertising.'
-p603
+p602
 g5
 sS'An unnamed third party does do something unspecified with your cookies or tracking elements for an unspecified purpose.'
-p604
+p603
 g5
 sS'An unnamed third party does receive your unspecified personal information for an unspecified purpose. The data is aggregated or anonymized.'
-p605
+p604
 g5
 sS'An unnamed third party does receive your unspecified personal information for analytics or research. The data is aggregated or anonymized.'
-p606
+p605
 g5
 sS'An unnamed third party does receive unspecified information about you for an unspecified purpose. This applies to a user type outside of our label scheme. You can opt in for data collection for the collection or sharing of your information.'
-p607
+p606
 g5
 sS'Users with accounts can deactivate their account, within the scope of information explicitly provided by the user.'
-p608
+p607
 g19
 sS'The site collects your demographic information for an unspecified purpose. Collection happens on the website, and your data is identifiable.'
-p609
+p608
 g2
 sS'The site collects your location information for an unspecified purpose. Collection happens when you implicitly provide information on the website, and your data is aggregated or anonymized.'
-p610
+p609
 g2
 sS'The site collects your website activities for analytics or research. Collection happens on the website.'
-p611
+p610
 g2
 sS'A named third party does not collect on the first party website or app your unspecified personal information for an unspecified purpose. The data is personally identifiable. You can opt in for data collection.'
-p612
+p611
 g5
 sS'A named third party does receive your unspecified personal information for targeted advertising.'
-p613
+p612
 g5
 sS'The site collects your cookies or tracking elements for an additional (non-basic) service or feature. Collection happens by a named service or third party.'
-p614
+p613
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens when you implicitly provide information on the website.'
-p615
+p614
 g2
 sS'The site collects your user profile for a basic service or feature. Collection happens in an unspecified way.'
-p616
+p615
 g2
 sS'The site collects your survey data for analytics or research. Collection happens on the website.'
-p617
+p616
 g2
 sS'An unnamed third party does track on the first party website or app your computer information for analytics or research.'
-p618
+p617
 g5
 sS'When a change of a variety outside of our label scheme is made to the privacy policy, users are notified in a manner outside of our label scheme. Users must agree before their data is treated according to the new privacy policy.'
-p619
+p618
 g7
 sS'An unnamed third party does not do something unspecified with your unspecified personal information for an unspecified purpose. You can opt in for data collection.'
-p620
+p619
 g5
 sS'You can opt out (via a link) from the use of contact information by the site, which uses it for a purpose outside of our label scheme.'
-p621
+p620
 g7
 sS'The site collects your generic personal information for advertising. Collection happens in an unspecified way.'
-p622
+p621
 g2
 sS'The site collects your unspecified information for marketing purposes. Collection happens by an unnamed service or third party.'
-p623
+p622
 g2
 sS'Other users does receive your user profile for an unspecified purpose.'
-p624
+p623
 g5
 sS'A user can view their information, within the scope of information the company has learned about the user.'
-p625
+p624
 g19
 sS'The site collects your unspecified information for advertising. Collection happens in an unspecified way.'
-p626
+p625
 g2
 sS'The site collects your unspecified information for analytics or research. Collection happens in an unspecified way.'
-p627
+p626
 g2
 sS'The site collects an information type outside of our label scheme for an unspecified purpose. Collection happens by some means outside of our label scheme.'
-p628
+p627
 g2
 sS'A named third party does receive unspecified information about you for an unspecified purpose. This applies to a user type outside of our label scheme. You can opt in for data collection for the collection or sharing of your information.'
-p629
+p628
 g5
 sS'The site collects your location information for advertising. Collection happens when you explicitly provide information by some means outside of our label scheme.'
-p630
+p629
 g2
 sS'An unnamed third party does do something outside of our label scheme with your computer information for analytics or research.'
-p631
+p630
 g5
 sS'A named third party does receive unspecified information about you for targeted advertising.'
-p632
+p631
 g5
 sS'The site collects your computer information for an unspecified purpose. Collection happens when you implicitly provide information on the website, and your data is aggregated or anonymized.'
-p633
+p632
 g2
 sS'The site collects your IP address or device IDs for advertising. Collection happens when you implicitly provide information on the website.'
-p634
+p633
 g2
 sS'The site collects your IP address or device IDs for an additional (non-basic) service or feature. Collection happens by a named service or third party.'
-p635
+p634
 g2
 sS'The site collects your contact information for a basic service or feature. Collection happens when you explicitly provide information on the website, and your data is identifiable. You can opt out using the provided link for the use of your information.'
-p636
+p635
 g2
 sS'The site collects your demographic information for analytics or research. Collection happens on the website.'
-p637
+p636
 g2
 sS'An unnamed third party does do something outside of our label scheme with unspecified information about you for mergers or acquisitions.'
-p638
+p637
 g5
 sS'The site collects your computer information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way, and your data is aggregated or anonymized.'
-p639
+p638
 g2
 sS'An unnamed third party does receive your activities on the website or app for an unspecified purpose.'
-p640
+p639
 g5
 sS'The site collects your website activities for personalization or customization. Collection happens when you implicitly provide information on the website.'
-p641
+p640
 g2
 sS'The public does see your user profile for a purpose outside of our label scheme. This applies to users with accounts. You can opt in for data collection.'
-p642
+p641
 g5
 sS'The site collects your generic personal information for analytics or research. Collection happens when you explicitly provide information in an unspecified way for users with accounts.'
-p643
+p642
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens by other websites.'
-p644
+p643
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens by some means outside of our label scheme.'
-p645
+p644
 g2
 sS'The site collects your cookies or tracking elements for a basic service or feature. Collection happens on the website. You can configure your privacy with third-party user settings.'
-p646
+p645
 g2
 sS'A user can access, edit, or delete personal information in a manner not covered by our label scheme, within the scope of unspecified user information.'
-p647
+p646
 g19
 sS'An unnamed third party does receive your contact information for marketing purposes. This applies to a user type outside of our label scheme. You can opt out by contacting the company for the collection or sharing of your information.'
-p648
+p647
 g5
 sS'A named third party does do something outside of our label scheme with your IP address or device IDs for targeted advertising. You can configure your privacy with third-party user settings.'
-p649
+p648
 g5
 sS'The site collects your location information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way, and your data is aggregated or anonymized.'
-p650
+p649
 g2
 sS'The site collects your contact information for service operations or security. Collection happens on the website, and your data is identifiable.'
-p651
+p650
 g2
 sS'An unnamed third party does collect on the first party website or app your computer information for targeted advertising.'
-p652
+p651
 g5
 sS'An unnamed third party does receive your unspecified personal information for a basic service or feature.'
-p653
+p652
 g5
 sS'The site collects your generic personal information for an additional (non-basic) service or feature. Collection happens when you explicitly provide information on the website, and your data is identifiable.'
-p654
+p653
 g2
 sS"A user's unspecified information is retained for an unspecified duration to perform a requested service, and then it is deleted.."
-p655
+p654
 g17
 sS'The site collects your financial information for a basic service or feature. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable.'
-p656
+p655
 g2
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way for users with accounts, and your data is aggregated or anonymized. You can opt in for data collection for the collection of your information.'
-p657
+p656
 g2
 sS'The site collects your cookies or tracking elements for analytics or research. Collection happens in an unspecified way. You can configure your privacy with browser settings.'
-p658
+p657
 g2
 sS'The site collects your survey data for an unspecified purpose. Collection happens in an unspecified way.'
-p659
+p658
 g2
 sS'A user with an account can make no specified choices about the use of information of a type not covered by our label scheme by a third party, which collects or receives it for an additional (non-basic) service or feature.'
-p660
+p659
 g7
 sS'An unnamed third party does receive unspecified information about you for targeted advertising.'
-p661
+p660
 g5
 sS'An unnamed third party does receive your financial information for a basic service or feature. The data is personally identifiable. You can choose not to use the service or feature.'
-p662
+p661
 g5
 sS'The site collects your unspecified information for advertising. Collection happens on other websites.'
-p663
+p662
 g2
 sS"When a change is made to the privacy policy that significantly affects data practices, users are personally notified. Users' choices regarding policy changes are not mentioned or are unclear."
-p664
+p663
 g7
 sS'An unnamed third party does receive your cookies or tracking elements for an unspecified purpose.'
-p665
+p664
 g5
 sS'You can opt out (via a link) from the use of unspecified information by a third party, which collects or receives it for advertising.'
-p666
+p665
 g7
 sS'A user can edit their information, within the scope of information explicitly provided by the user.'
-p667
+p666
 g19
 sS'An unnamed third party does collect on the first party website or app your location information for targeted advertising.'
-p668
+p667
 g5
 sS'An unnamed third party does do something outside of our label scheme with your location information for analytics or research.'
-p669
+p668
 g5
 sS'Another part of the company or institution does receive your unspecified personal information for an unspecified purpose.'
-p670
+p669
 g5
 sS'The policy makes a statement about how data from children is treated.'
-p671
+p670
 g19
 sS'The site collects your generic personal information for a basic service or feature. Collection happens when you explicitly provide information in an unspecified way for users with accounts. You can opt in for data collection for the collection of your information.'
-p672
+p671
 g2
 sS'The site collects your user profile for an unspecified purpose. Collection happens by some means outside of our label scheme.'
-p673
+p672
 g2
 sS'You can opt in for the use of information of a type not covered by our label scheme by a third party, which collects or receives it for an unspecified purpose.'
-p674
+p673
 g7
 sS'An unnamed third party does not receive your survey data for analytics or research.'
-p675
+p674
 g5
 sS'The site collects your unspecified information for marketing purposes. Collection happens by an unnamed service or third party, and your data is identifiable.'
-p676
+p675
 g2
 sS'The site collects your website activities for service operations or security. Collection happens when you implicitly provide information in an unspecified way.'
-p677
+p676
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way. You can opt in for data collection.'
-p678
+p677
 g2
 sS'You can opt in for the use of generic personal information by the site, which collects it for an unspecified purpose.'
-p679
+p678
 g7
 sS'An unnamed third party does receive unspecified information about you for a basic service or feature. The data is personally identifiable.'
-p680
+p679
 g5
 sS'The site collects your generic personal information for a basic service or feature. Collection happens when you implicitly provide information in an unspecified way.'
-p681
+p680
 g2
 sS'The site collects your unspecified information for a basic service or feature. Collection happens on the website.'
-p682
+p681
 g2
 sS'The site collects your cookies or tracking elements for analytics or research. Collection happens in an unspecified way.'
-p683
+p682
 g2
 sS'An unspecified third party does not receive unspecified information about you for an unspecified purpose. The data is personally identifiable.'
-p684
+p683
 g5
 sS'An unnamed third party does receive your unspecified personal information for analytics or research. The data is personally identifiable.'
-p685
+p684
 g5
 sS'The public does receive your unspecified personal information for an additional (non-basic) service or feature. You can opt in for data collection.'
-p686
+p685
 g5
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way. You can configure your privacy with browser settings.'
-p687
+p686
 g2
 sS'An unnamed third party does track on the first party website or app your cookies or tracking elements for personalization or customization.'
-p688
+p687
 g5
 sS"The site collects your demographic information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way, and your data's identifiability is not covered by our label scheme."
-p689
+p688
 g2
 sS'You can opt out (via a link) from the use of unspecified information by an unspecified party for advertising.'
-p690
+p689
 g7
 sS'The site collects your website activities for marketing purposes. Collection happens when you implicitly provide information in an unspecified way.'
-p691
+p690
 g2
 sS'A named third party does do something outside of our label scheme with your cookies or tracking elements for targeted advertising. You can configure your privacy with third-party user settings.'
-p692
+p691
 g5
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens when you explicitly provide information on the website. You can opt in for data collection.'
-p693
+p692
 g2
 sS'An unnamed third party does receive your unspecified personal information for marketing purposes.'
-p694
+p693
 g5
 sS'The site collects your website activities for advertising. Collection happens when you implicitly provide information in an unspecified way.'
-p695
+p694
 g2
 sS'An unnamed third party does do something outside of our label scheme with your activities on the website or app for analytics or research.'
-p696
+p695
 g5
 sS'Other users does receive your activities on the website or app for an unspecified purpose. The data is personally identifiable. You can opt in for data collection.'
-p697
+p696
 g5
 sS'The site collects your generic personal information for a basic service or feature. Collection happens in an unspecified way.'
-p698
+p697
 g2
 sS'A named third party does track on the first party website or app your location information for targeted advertising.'
-p699
+p698
 g5
 sS'The site collects your computer information for a basic service or feature. Collection happens in an unspecified way.'
-p700
+p699
 g2
 sS'The site collects your unspecified information for personalization or customization. Collection happens when you implicitly provide information on the website, and your data is aggregated or anonymized.'
-p701
+p700
 g2
 sS'You can make no specified choices about the use of unspecified information by an unspecified party for an unspecified purpose.'
-p702
+p701
 g7
 sS"A user's contact information is retained for an unspecified duration to perform a requested service, and then it is deleted.."
-p703
+p702
 g17
 sS'You can opt out (via a link) from the use of contact information by the site, which uses it for an additional (non-basic) service or feature.'
-p704
+p703
 g7
 sS'The site collects your cookies or tracking elements for marketing purposes. Collection happens when you implicitly provide information on other websites.'
-p705
+p704
 g2
 sS'The site collects your IP address or device IDs for an unspecified purpose. Collection happens in the mobile app.'
-p706
+p705
 g2
 sS'An unnamed third party does track on the first party website or app your cookies or tracking elements for an unspecified purpose. You can opt out using the provided link.'
-p707
+p706
 g5
 sS'A named third party does receive your financial information for an unspecified purpose.'
-p708
+p707
 g5
 sS'The site collects your unspecified information for advertising. Collection happens on the website.'
-p709
+p708
 g2
 sS'The site collects your contact information for an additional (non-basic) service or feature. Collection happens when you explicitly provide information in an unspecified way for users without accounts. You can opt in for data collection for the collection of your information.'
-p710
+p709
 g2
 sS"When a change of an unspecified nature is made to the privacy policy, users are personally notified. Users' choices regarding policy changes are not mentioned or are unclear."
-p711
+p710
 g7
 sS'An unspecified third party does receive unspecified information about you for mergers or acquisitions. The data is personally identifiable.'
-p712
+p711
 g5
 sS"A user's unspecified information is retained for a limited (but unspecified) period of time to perform a requested service, and then it is deleted.."
-p713
+p712
 g17
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way. You can choose not to use the service or feature.'
-p714
+p713
 g2
 sS'Users with accounts can access, edit, or delete personal information in an unspecified manner, within the scope of transactional data (e.g., online activity, purchases).'
-p715
+p714
 g19
 sS'The site collects your website activities for an unspecified purpose. Collection happens when you implicitly provide information on the website.'
-p716
+p715
 g2
 sS'The site collects your unspecified information for an additional (non-basic) service or feature. Collection happens on the website.'
-p717
+p716
 g2
 sS'A user with an account can opt in for the use of user profile by a third party, which collects or receives it for an additional (non-basic) service or feature.'
-p718
+p717
 g7
 sS'The site collects an information type outside of our label scheme for personalization or customization. Collection happens when you explicitly provide information on the website, and your data is identifiable.'
-p719
+p718
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way. You can opt out using the provided link.'
-p720
+p719
 g2
 sS'Other users does do something outside of our label scheme with unspecified information about you for an additional (non-basic) service or feature.'
-p721
+p720
 g5
 sS'When a change of an unspecified nature is made to the privacy policy, users are notified when visiting the website. Users can participate in a process to influence the change.'
-p722
+p721
 g7
 sS'A named third party does track on the first party website or app your computer information for targeted advertising.'
-p723
+p722
 g5
 sS'You can opt out (via a link) from the use of unique personal identifier by a third party, which collects or receives it for an unspecified purpose.'
-p724
+p723
 g7
 sS'The site collects your contact information for personalization or customization. Collection happens when you implicitly provide information by an unnamed service or third party, and your data is identifiable.'
-p725
+p724
 g2
 sS'The site collects your generic personal information for marketing purposes. Collection happens when you implicitly provide information by an unnamed service or third party, and your data is identifiable.'
-p726
+p725
 g2
 sS'An unnamed third party does do something unspecified with your cookies or tracking elements for targeted advertising. You can make a choice about the use of your information.'
-p727
+p726
 g5
 sS'An unspecified third party does receive your unspecified personal information for a purpose outside of our label scheme.'
-p728
+p727
 g5
 sS'An unnamed third party does receive unspecified information about you for service operations or security.'
-p729
+p728
 g5
 sS'A third party outside of our label scheme does receive unspecified information about you for mergers or acquisitions.'
-p730
+p729
 g5
 sS'A named third party does not collect on the first party website or app your contact information for an unspecified purpose. You can opt in for data collection.'
-p731
+p730
 g5
 sS'You can opt out (by contacting the company) from the use of generic personal information by a third party, which collects or receives it for marketing purposes.'
-p732
+p731
 g7
 sS'A named third party does track on the first party website or app your cookies or tracking elements for targeted advertising. You can configure your privacy with third-party user settings for the use of your information.'
-p733
+p732
 g5
 sS'An unnamed third party does track on the first party website or app your cookies or tracking elements for targeted advertising.'
-p734
+p733
 g5
 sS'You can opt in for the use of generic personal information by the site, which uses it for an unspecified purpose.'
-p735
+p734
 g7
 sS'The site collects your website activities for a basic service or feature. Collection happens in an unspecified way, and your data is aggregated or anonymized.'
-p736
+p735
 g2
 sS'The site collects an information type outside of our label scheme for service operations or security. Collection happens in an unspecified way.'
-p737
+p736
 g2
 sS'The site collects your demographic information for marketing purposes. Collection happens when you implicitly provide information by an unnamed service or third party.'
-p738
+p737
 g2
 sS'An unspecified third party does receive unspecified information about you for an unspecified purpose. The data is aggregated or anonymized.'
-p739
+p738
 g5
 sS'You can opt out (via a link) from the use of unspecified information by a third party, which collects or receives it for an unspecified purpose.'
-p740
+p739
 g7
 sS'Data is accessible to employees/third parties on a need-to-know basis.'
-p741
+p740
 g17
 sS'The site collects your demographic information for a basic service or feature. Collection happens when you explicitly provide information in an unspecified way for users with accounts. You can opt in for data collection for the collection of your information.'
-p742
+p741
 g2
 sS'A named third party does not track on the first party website or app your unspecified personal information for an unspecified purpose.'
-p743
+p742
 g5
 sS'An unnamed third party does track on the first party website or app your activities on the website or app for a basic service or feature.'
-p744
+p743
 g5
 sS'When a change is made to the privacy policy that significantly affects data practices, users are personally notified. Users have no options regarding the change.'
-p745
+p744
 g7
 sS'A user can delete their account (with the company or organization removing all data), within the scope of information the company has learned about the user.'
-p746
+p745
 g19
 sS'An unnamed third party does receive your IP address or device IDs for an unspecified purpose.'
-p747
+p746
 g5
 sS'An unnamed third party does not receive your unspecified personal information for targeted advertising.'
-p748
+p747
 g5
 sS'The site collects your unspecified information for analytics or research. Collection happens when you implicitly provide information in an unspecified way.'
-p749
+p748
 g2
 sS'The site collects your cookies or tracking elements for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way, and your data is aggregated or anonymized.'
-p750
+p749
 g2
 sS'The site collects your generic personal information for marketing purposes. Collection happens in an unspecified way. You can make a choice about the use of your information.'
-p751
+p750
 g2
 sS'The site collects your generic personal information for advertising. Collection happens when you implicitly provide information in an unspecified way.'
-p752
+p751
 g2
 sS"When a minor change is made to the privacy policy that does not significantly affect data practices, the policy date is updated or information about the change is posted as part of the policy. Users' choices regarding policy changes are not mentioned or are unclear."
-p753
+p752
 g7
 sS'The site collects your social media data for an unspecified purpose. Collection happens when you implicitly provide information by other websites.'
-p754
+p753
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens in an unspecified way. You can opt in for data collection for the use of your information.'
-p755
+p754
 g2
 sS'The site collects your cookies or tracking elements for a basic service or feature. Collection happens when you implicitly provide information in an unspecified way.'
-p756
+p755
 g2
 sS'A user can access, edit, or delete personal information in an unspecified manner, within the scope of transactional data (e.g., online activity, purchases).'
-p757
+p756
 g19
 sS'The site collects your generic personal information for legal requirements. Collection happens on the website, and your data is identifiable.'
-p758
+p757
 g2
 sS'The site collects your unspecified information for a purpose outside of our label scheme. Collection happens by an unnamed service or third party.'
-p759
+p758
 g2
 sS'The site collects your contact information for an unspecified purpose. Collection happens on the website, and your data is identifiable.'
-p760
+p759
 g2
 sS'The site collects your user profile for advertising. Collection happens when you explicitly provide information by some means outside of our label scheme.'
-p761
+p760
 g2
 sS'The site collects your computer information for an unspecified purpose. Collection happens on the website.'
-p762
+p761
 g2
 sS'The site collects your generic personal information for personalization or customization. Collection happens in an unspecified way. You can make a choice about the use of your information.'
-p763
+p762
 g2
 sS'The site collects your cookies or tracking elements for a basic service or feature. Collection happens in an unspecified way, and your data is aggregated or anonymized.'
-p764
+p763
 g2
 sS'You can choose not to use a service or feature to avoid the use of unspecified information by the site, which collects it for a basic service or feature.'
-p765
+p764
 g7
 sS'Other users does receive your activities on the website or app for an additional (non-basic) service or feature. You can opt in for data collection.'
-p766
+p765
 g5
 sS'A named third party does receive your unspecified personal information for targeted advertising. The data is personally identifiable.'
-p767
+p766
 g5
 sS'The site collects your demographic information for a basic service or feature. Collection happens in an unspecified way, and your data is aggregated or anonymized.'
-p768
+p767
 g2
 sS'The site collects your IP address or device IDs for an unspecified purpose. Collection happens when you implicitly provide information on the website, and your data is aggregated or anonymized.'
-p769
+p768
 g2
 sS'You can opt out (via a link) from the use of contact information by the site, which uses it for marketing purposes.'
-p770
+p769
 g7
 sS'An unnamed third party does receive your user profile for targeted advertising. The data is aggregated or anonymized.'
-p771
+p770
 g5
 sS'The site collects your demographic information for a basic service or feature. Collection happens when you explicitly provide information on the website, and your data is identifiable.'
-p772
+p771
 g2
 sS'The site does not collect your contact information for an unspecified purpose. Collection happens when you explicitly provide information on the website.'
-p773
+p772
 g2
 sS'The site collects your demographic information for a basic service or feature. Collection happens on the website for users with accounts. You can opt in for data collection.'
-p774
+p773
 g2
 sS"When a change is made to the privacy policy that significantly affects data practices, users are notified when visiting the website. Users' choices regarding policy changes are not mentioned or are unclear."
-p775
+p774
 g7
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way for users with accounts.'
-p776
+p775
 g2
 sS'The site collects your demographic information for a basic service or feature. Collection happens on the website.'
-p777
+p776
 g2
 sS'An unnamed third party does collect on the first party website or app your activities on the website or app for targeted advertising.'
-p778
+p777
 g5
 sS'The site collects your unspecified information for an unspecified purpose. Collection happens when you explicitly provide information in an unspecified way.'
-p779
+p778
 g2
 sS'The site collects your unspecified information for an additional (non-basic) service or feature. Collection happens in an unspecified way, and your data is identifiable.'
-p780
+p779
 g2
 sS'The site collects your location information for an unspecified purpose. Collection happens when you implicitly provide information in an unspecified way.'
-p781
+p780
 g2
 sS'The site collects an information type outside of our label scheme for analytics or research. Collection happens in an unspecified way for a user type outside of our label scheme. You can choose not to use the service or feature.'
-p782
+p781
 g2
 sS'The site collects your generic personal information for marketing purposes. Collection happens in an unspecified way. You can choose not to use the service or feature.'
-p783
+p782
 g2
 sS'You can opt out (by contacting the company) from the use of unspecified information by the site, which uses it for marketing purposes.'
-p784
+p783
 g7
 sS'You can make no specified choices about the use of contact information by the site, which uses it for marketing purposes.'
-p785
+p784
 g7
 sS'You can make no specified choices about the use of contact information by the site, which uses it for a purpose outside of our label scheme.'
-p786
+p785
 g7
 sS'An unnamed third party does not do something outside of our label scheme with your unspecified personal information for a basic service or feature. The data is personally identifiable.'
-p787
+p786
 g5
 sS'A named third party does track on the first party website or app your cookies or tracking elements for targeted advertising.'
-p788
+p787
 g5
 sS'The site collects your generic personal information for a basic service or feature. Collection happens by some means outside of our label scheme.'
-p789
+p788
 g2
 sS'An unnamed third party does receive your unspecified personal information for service operations or security.'
-p790
+p789
 g5
 sS'The site collects your website activities for analytics or research. Collection happens by some means outside of our label scheme.'
-p791
+p790
 g2
 sS'The site collects your cookies or tracking elements for personalization or customization. Collection happens when you implicitly provide information on the website for users with accounts, and your data is identifiable.'
-p792
+p791
 g2
 sS'The site collects your generic personal information for marketing purposes. Collection happens when you explicitly provide information in an unspecified way for users with accounts.'
-p793
+p792
 g2
 sS'An unnamed third party does receive your contact information for targeted advertising. The data is personally identifiable. You can opt out by contacting the company.'
-p794
+p793
 g5
 sS'The site collects your contact information for an unspecified purpose. Collection happens when you explicitly provide information on the website, and your data is identifiable.'
-p795
+p794
 g2
 sS'An unnamed third party does collect on the first party website or app your unspecified personal information for an unspecified purpose. The data is personally identifiable.'
-p796
+p795
 g5
 sS'The site collects your website activities for an unspecified purpose. Collection happens in an unspecified way, and your data is aggregated or anonymized.'
-p797
+p796
 g2
 sS'The site collects your generic personal information for an unspecified purpose. Collection happens when you explicitly provide information on the website, and your data is identifiable.'
-p798
+p797
 g2
 sS'The site collects your generic personal information for personalization or customization. Collection happens when you explicitly provide information in an unspecified way, and your data is identifiable.'
-p799
+p798
 g2
 sS'A user with an account can opt out (by contacting the company) from the use of contact information by a third party, which collects or receives it for marketing purposes.'
-p800
+p799
 g7
 sS'An unnamed third party does receive your unspecified personal information for a basic service or feature. The data is personally identifiable.'
-p801
+p800
 g5
 sS'An unnamed third party does receive your cookies or tracking elements for targeted advertising.'
-p802
+p801
 g5
 sS'The site collects your IP address or device IDs for a basic service or feature. Collection happens in the mobile app.'
-p803
+p802
 g2
 sS"A user's unspecified information is retained for an unspecified duration to meet legal or law enforcement requirements, and then it is deleted.."
-p804
+p803
 g17
 sS'You can choose not to use a service or feature to avoid the use of generic personal information by the site, which collects it for an unspecified purpose.'
-p805
+p804
 g7
 sS'An unnamed third party does not receive your contact information for an unspecified purpose. You can opt in for data collection.'
-p806
+p805
 g5
 sS'The public does see unspecified information about you for an unspecified purpose. You can opt in for data collection for the use of your information.'
-p807
+p806
 g5
 sS'An unnamed third party does not receive your contact information for an unspecified purpose.'
-p808
+p807
 g5
 sS'The site collects your contact information for a purpose outside of our label scheme. Collection happens by some means outside of our label scheme. You can configure your privacy using a method outside our label scheme for the use of your information.'
-p809
+p808
 g2
 sS'Users with accounts can edit their information, within the scope of information the company has learned about the user.'
-p810
+p809
 g19
 sS'The site collects your social media data for an additional (non-basic) service or feature. Collection happens by an unnamed service or third party.'
-p811
+p810
 g2
 sS'The policy makes a statement about data from a demographic outside of our label scheme.'
-p812
+p811
 g19
 s.
