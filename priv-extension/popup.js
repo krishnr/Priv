@@ -90,18 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url) => {
     var span = document.getElementById('site-title');
     span.innerHTML = page_title;
-    displayPrivacySummary();
+    displayPrivacySummary(page_url);
   });
 });
 
-function displayPrivacySummary() {
+function displayPrivacySummary(page_url) {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:5000/", true);
+  var hostname = getHostName(page_url);
+
+  xhr.open("GET", "http://localhost:5000/summarize?hostname=" + hostname, true);
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         var res = JSON.parse(xhr.response);
-        console.log(xhr.res);
         formatCollection(res.collection, 'collection');
         formatCollection(res.use, 'use');
         formatCollection(res.disclosure, 'disclosure');
@@ -115,6 +116,12 @@ function displayPrivacySummary() {
     console.error(xhr.statusText);
   };
   xhr.send(null);
+}
+
+function getHostName(url) {
+  var parse = document.createElement('a');
+  parse.href = url;
+  return parse.hostname;
 }
 
 function formatCollection(data, type) {

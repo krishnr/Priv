@@ -1,10 +1,12 @@
-from flask import Flask
-from flask import jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route("/")
+
+@app.route("/summarize")
 def summarize():
+    hostname = request.args.get('hostname')
+    print (hostname)
     # return "hi krishn"
     return jsonify({
         'collection': { # (What information is being collected?) (Notice, Consent)
