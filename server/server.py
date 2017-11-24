@@ -5,6 +5,14 @@ import pickle
 
 app = Flask(__name__)
 
+policy_dict = {
+    'cbc': '../policies/CBC.txt',
+    'bbc': '../policies/NPR.txt',
+    'nytimes': '../policies/NYT.txt',
+    'thestar': '../policies/TO-star.txt',
+    'npr': '../policies/NPR.txt',
+    'bloomberg': '../policies/bloomberg.txt',
+}
 
 @app.route("/summarize")
 def summarize():
@@ -13,7 +21,8 @@ def summarize():
 
     # TODO
     # Find the right file based on the website we're on
-    f = open("../policies/NYT.txt", "r")
+    policy = policy_dict[hostname]
+    f = open(policy, "r")
 
     label_clf = joblib.load('../label_clf.pkl')
     dim_clf = joblib.load('../dim_clf.pkl')
