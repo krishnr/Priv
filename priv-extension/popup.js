@@ -89,7 +89,7 @@ function getSavedBackgroundColor(url, callback) {
 document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url) => {
     var span = document.getElementById('site-title');
-    span.innerHTML = page_title;
+    span.innerHTML = getTLD(page_url);
     displayPrivacySummary(page_url);
   });
 });
@@ -103,9 +103,12 @@ function displayPrivacySummary(page_url) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         var res = JSON.parse(xhr.response);
+        // Remove disclosure entities for now
+        delete res["disclosure"];
+        //formatCollection(res.disclosure, 'disclosure');
+
         formatCollection(res.collection, 'collection');
         formatCollection(res.use, 'use');
-        formatCollection(res.disclosure, 'disclosure');
         formatCollection(res.choice, 'choice');
       } else {
         console.error(xhr.statusText);
@@ -125,7 +128,6 @@ function getTLD(url) {
 }
 
 function formatCollection(data, type) {
-  console.log(data)
   var text = []
 
   Object.keys(data.more_info).forEach(function(key, index) {
