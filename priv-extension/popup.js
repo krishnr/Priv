@@ -125,11 +125,16 @@ function getTLD(url) {
 }
 
 function formatCollection(data, type) {
+  console.log(data)
   var text = []
-  var labels = [data.more_info.label_1, data.more_info.label_2, data.more_info.label_3];
 
-  for (var i = 0; i < 3; i++) { // no good way to get length of object in JS so hardcore to 3
-    text[i] = document.getElementById(type + '_' + i);
-    text[i].innerHTML = "<i class='em em-point_right'></i> " + labels[i];
-  }
+  Object.keys(data.more_info).forEach(function(key, index) {
+    text[index] = document.getElementById(type + '_' + index);
+    if (this[key] != " ") {
+      text[index].innerHTML = "<i class='em em-point_right'></i> " + this[key];
+    }
+    else {
+      text[index].style.display = "none";
+    }
+  }, data.more_info);
 }
