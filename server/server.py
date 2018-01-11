@@ -24,10 +24,10 @@ def summarize():
     policy = policy_dict[hostname]
     f = open(policy, "r")
 
-    label_clf = joblib.load('../label_clf.pkl')
-    dim_clf = joblib.load('../dim_clf.pkl')
+    label_clf = joblib.load('../pickles/label_clf.pkl')
+    dim_clf = joblib.load('../pickles/dim_clf.pkl')
 
-    with open('../label_dict.p', 'rb') as handle:
+    with open('../pickles/label_dict.p', 'rb') as handle:
         label_dict = pickle.load(handle)
 
     def is_valid_line(line):
