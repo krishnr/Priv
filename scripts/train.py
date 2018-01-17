@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 from sklearn.externals import joblib
 
-with open('datasets/summary_dataset.p', 'rb') as handle:
+with open('../datasets/summary_dataset.p', 'rb') as handle:
     dataset = pickle.load(handle)
 
 raw_text = []
@@ -40,7 +40,7 @@ label_clf = Pipeline([('vect', CountVectorizer()),
 
 label_clf = label_clf.fit(raw_text, label_targets)
 
-joblib.dump(label_clf, 'pickles/label_clf.pkl')
-joblib.dump(dim_clf, 'pickles/dim_clf.pkl')
+joblib.dump(label_clf, '../pickles/label_clf.pkl')
+joblib.dump(dim_clf, '../pickles/dim_clf.pkl')
 
-pickle.dump(label_dict, open('pickles/label_dict.p', 'wb'))
+pickle.dump(label_dict, open('../pickles/label_dict.p', 'wb'))

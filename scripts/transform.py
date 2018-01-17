@@ -62,37 +62,37 @@ def build_dataset(a_file, l_file):
 
     return return_arr
 
-atlantic = build_dataset('./OPP-115/annotations/20_theatlantic.com.csv', './OPP-115/pretty_print/theatlantic.com.csv')
+atlantic = build_dataset('../OPP-115/annotations/20_theatlantic.com.csv', '../OPP-115/pretty_print/theatlantic.com.csv')
 summary_dataset += atlantic
 
-wapo = build_dataset('./OPP-115/annotations/200_washingtonpost.com.csv', './OPP-115/pretty_print/washingtonpost.com.csv')
+wapo = build_dataset('../OPP-115/annotations/200_washingtonpost.com.csv', '../OPP-115/pretty_print/washingtonpost.com.csv')
 summary_dataset += wapo
 
-thehill = build_dataset('./OPP-115/annotations/1360_thehill.com.csv', './OPP-115/pretty_print/thehill.com.csv')
+thehill = build_dataset('../OPP-115/annotations/1360_thehill.com.csv', '../OPP-115/pretty_print/thehill.com.csv')
 summary_dataset += thehill
 
-vox = build_dataset('./OPP-115/annotations/32_voxmedia.com.csv', './OPP-115/pretty_print/voxmedia.com.csv')
+vox = build_dataset('../OPP-115/annotations/32_voxmedia.com.csv', '../OPP-115/pretty_print/voxmedia.com.csv')
 summary_dataset += vox
 
-timeinc = build_dataset('./OPP-115/annotations/320_timeinc.com.csv', './OPP-115/pretty_print/timeinc.com.csv')
+timeinc = build_dataset('../OPP-115/annotations/320_timeinc.com.csv', '../OPP-115/pretty_print/timeinc.com.csv')
 summary_dataset += timeinc
 
-nyt = build_dataset('./OPP-115/annotations/26_nytimes.com.csv', './OPP-115/pretty_print/nytimes.com.csv')
+nyt = build_dataset('../OPP-115/annotations/26_nytimes.com.csv', '../OPP-115/pretty_print/nytimes.com.csv')
 test_dataset += nyt
 
-daily_news = build_dataset('./OPP-115/annotations/1683_dailynews.com.csv', './OPP-115/pretty_print/dailynews.com.csv')
+daily_news = build_dataset('../OPP-115/annotations/1683_dailynews.com.csv', '../OPP-115/pretty_print/dailynews.com.csv')
 test_dataset += daily_news
 
-post_gazette = build_dataset('./OPP-115/annotations/1610_post-gazette.com.csv', './OPP-115/pretty_print/post-gazette.com.csv')
+post_gazette = build_dataset('../OPP-115/annotations/1610_post-gazette.com.csv', '../OPP-115/pretty_print/post-gazette.com.csv')
 test_dataset += post_gazette
 
-pickle.dump(summary_dataset, open('datasets/summary_dataset.p', 'wb'))
-pickle.dump(test_dataset, open('datasets/test_dataset.p', 'wb'))
+pickle.dump(summary_dataset, open('../datasets/summary_dataset.p', 'wb'))
+pickle.dump(test_dataset, open('../datasets/test_dataset.p', 'wb'))
 
-with open('datasets/summary_dataset.p', 'rb') as handle:
+with open('../datasets/summary_dataset.p', 'rb') as handle:
     dataset = pickle.load(handle)
 
-with open('datasets/test_dataset.p', 'rb') as test_handle:
+with open('../datasets/test_dataset.p', 'rb') as test_handle:
     test_dataset = pickle.load(test_handle)
 
 print dataset
