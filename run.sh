@@ -6,6 +6,7 @@ debug=0
 exit=0
 clean=0
 start=0
+test=0
 
 virtual_env_setup()
 {
@@ -68,7 +69,13 @@ usage()
     General Options:
     -c, --clean                 Removes Python-generated files and rebuilds pickles
     -h, --help                  Show help
+    -t, --test                  Runs NLP test scripts
     "
+}
+
+test()
+{
+    python3 scripts/test.py
 }
 
 while [ "$1" != "" ]; do
@@ -77,6 +84,8 @@ while [ "$1" != "" ]; do
                                 ;;
         -h | --help )           usage
                                 exit
+                                ;;
+        -t | --test )           test=1
                                 ;;
         start )                 start=1
 
@@ -89,6 +98,10 @@ init
 
 if [ "$clean" = "1" ]; then
     clean
+fi
+
+if [ "$test" = "1" ]; then
+    test
 fi
 
 if [ "$start" = "1" ]; then

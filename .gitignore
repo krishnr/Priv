@@ -104,3 +104,6 @@ pickles/*.pkl
 # mypy
 .mypy_cache/
 .vscode/tasks.json
+
+Intellij Files
+.idea/
