@@ -71,10 +71,6 @@ usage()
     "
 }
 
-#init
-#start
-
-
 while [ "$1" != "" ]; do
     case $1 in
         -c | --clean )          clean=1
