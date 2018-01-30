@@ -86,6 +86,10 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
+virtualenv_Priv/
+
+# Generated pickle files
+pickles/*.pkl
 
 # Spyder project settings
 .spyderproject

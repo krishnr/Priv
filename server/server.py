@@ -6,12 +6,12 @@ import pickle
 app = Flask(__name__)
 
 policy_dict = {
-    'cbc': '../policies/CBC.txt',
-    'bbc': '../policies/BBC.txt',
-    'nytimes': '../policies/NYT.txt',
-    'thestar': '../policies/TO-star.txt',
-    'npr': '../policies/NPR.txt',
-    'bloomberg': '../policies/bloomberg.txt',
+    'cbc': './policies/CBC.txt',
+    'bbc': './policies/BBC.txt',
+    'nytimes': './policies/NYT.txt',
+    'thestar': './policies/TO-star.txt',
+    'npr': './policies/NPR.txt',
+    'bloomberg': './policies/bloomberg.txt',
 }
 
 @app.route("/summarize")
@@ -24,10 +24,10 @@ def summarize():
     policy = policy_dict[hostname]
     f = open(policy, "r")
 
-    label_clf = joblib.load('../pickles/label_clf.pkl')
-    dim_clf = joblib.load('../pickles/dim_clf.pkl')
+    label_clf = joblib.load('./pickles/label_clf.pkl')
+    dim_clf = joblib.load('./pickles/dim_clf.pkl')
 
-    with open('../pickles/label_dict.p', 'rb') as handle:
+    with open('./pickles/label_dict.p', 'rb') as handle:
         label_dict = pickle.load(handle)
 
     def is_valid_line(line):
@@ -50,9 +50,9 @@ def summarize():
     predicted_labels = label_clf.predict(relevant_lines)
 
     # print lines with associated labels
-    for i, elem in enumerate(predicted_labels):
-        print relevant_lines[i] + "   :   " + elem
-        print "\n"
+    #for i, elem in enumerate(predicted_labels):
+        #print relevant_lines[i] + "   :   " + elem
+        #print "\n"
 
 
     predicted_labels = predicted_labels.tolist()
