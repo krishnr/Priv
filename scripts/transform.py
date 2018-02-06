@@ -1,6 +1,7 @@
 import csv
 import json
 import pickle
+import os
 
 summary_dataset = []
 test_dataset = []
@@ -85,6 +86,16 @@ test_dataset += daily_news
 
 post_gazette = build_dataset('OPP-115/annotations/1610_post-gazette.com.csv', 'OPP-115/pretty_print/post-gazette.com.csv')
 test_dataset += post_gazette
+
+folder = 'datasets'
+if not os.path.exists(folder):
+    print "Making directory: " + folder
+    os.makedirs(folder)
+
+folder = 'pickles'
+if not os.path.exists(folder):
+    print "Making directory: " + folder
+    os.makedirs(folder)
 
 pickle.dump(summary_dataset, open('datasets/summary_dataset.p', 'wb'))
 pickle.dump(test_dataset, open('datasets/test_dataset.p', 'wb'))
