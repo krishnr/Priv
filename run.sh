@@ -19,7 +19,7 @@ virtual_env_setup()
     echo "Checking if virtual environment has been created"
     if [ ! -d virtualenv_Priv ]; then
         echo "No virtualenv directory found, creating"
-        virtualenv virtualenv_Priv
+        virtualenv -p python3 virtualenv_Priv
     fi
 
     . virtualenv_Priv/bin/activate
