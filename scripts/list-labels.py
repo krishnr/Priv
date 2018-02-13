@@ -2,7 +2,10 @@ import os
 import csv
 import re
 
-dim_map = {
+
+
+def get_dimension(label, dimension):
+    dim_map = {
     'First Party Collection/Use': 'Collection',
     'Third Party Sharing/Collection': 'Third Party',
     'User Choice/Control': 'Choices',
@@ -13,7 +16,12 @@ dim_map = {
     'Do Not Track': 'Do Not Track',
     'International and Specific Audiences': 'International',
     'Other': 'Other'
-}
+    }
+    
+    if 'location' in label.lower():
+        return 'Location'
+
+    return dim_map[dimension]
 
 def build_dataset(a_file, l_file):
     dataset_arr = []
@@ -25,8 +33,7 @@ def build_dataset(a_file, l_file):
             opp_dimension = row[5]
 
             temp_dict['annotation_id'] = annotation_id
-            dimension = dim_map[opp_dimension]
-            temp_dict['dimension'] = dimension
+            temp_dict['dimension'] = opp_dimension
 
             dataset_arr.append(temp_dict)
 
@@ -42,7 +49,8 @@ def build_dataset(a_file, l_file):
     
     for row in dataset_arr:
         row['label'] = label_dataset[row['annotation_id']]
-        return_arr.append((row['label'], row['dimension']))
+        dimension = get_dimension(row['label'], row['dimension'])
+        return_arr.append((row['label'], dimension))
 
     return return_arr
 
