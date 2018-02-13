@@ -28,6 +28,9 @@ virtual_env_setup()
 create_train_transform_sets()
 {
     echo "Creating data set pickles..."
+    if [ ! -d datasets ]; then
+        mkdir datasets
+    fi
     python3 scripts/transform.py
     python3 scripts/train.py
 }
@@ -58,7 +61,7 @@ start()
     fi
 
     echo "Starting server"
-    python3 server/__init__.py
+    python3 server/run.py
 }
 
 usage()

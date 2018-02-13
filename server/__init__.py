@@ -1,4 +1,3 @@
-from server import app
+from flask import Flask
 
-if __name__ == '__main__':
-    app.run()
+app = Flask(__name__)

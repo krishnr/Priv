@@ -2,27 +2,23 @@ from flask import Flask, jsonify, request
 from sklearn.externals import joblib
 from collections import Counter
 import pickle
+import get_policies
+
 
 app = Flask(__name__)
 
-policy_dict = {
-    'cbc': './policies/CBC.txt',
-    'bbc': './policies/BBC.txt',
-    'nytimes': './policies/NYT.txt',
-    'thestar': './policies/TO-star.txt',
-    'npr': './policies/NPR.txt',
-    'bloomberg': './policies/bloomberg.txt',
-}
+
+def is_valid_line(line):
+    # Assuming a heading (which we want to ignore) is less than 50 chars
+    return len(line) > 100
 
 @app.route("/summarize")
 def summarize():
     hostname = request.args.get('hostname')
-    print (hostname)
+    print(hostname)
 
-    # TODO
     # Find the right file based on the website we're on
-    policy = policy_dict[hostname]
-    f = open(policy, "r")
+    policy = get_policies.get_policy(hostname)
 
     label_clf = joblib.load('./pickles/label_clf.pkl')
     dim_clf = joblib.load('./pickles/dim_clf.pkl')
@@ -30,13 +26,8 @@ def summarize():
     with open('./pickles/label_dict.p', 'rb') as handle:
         label_dict = pickle.load(handle)
 
-    def is_valid_line(line):
-        line = line.strip("\n")
-        # Assuming a heading (which we want to ignore) is less than 50 chars
-        return len(line) > 100
-
     pp_lines = []
-    for line in f:
+    for line in policy.split('\n'):
         if is_valid_line(line):
             pp_lines.append(line)
 
