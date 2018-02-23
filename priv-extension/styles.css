@@ -1,7 +1,10 @@
 body {
-    width: 380px;
+    width: 350px;
+    min-height: 440px;
     margin: 10px;
     white-space: nowrap;
+    font-family: 'Proxima Nova', Georgia, sans-serif;
+    padding: 10px 25px 10px 25px;
 }
 
 h1 {
@@ -9,31 +12,39 @@ h1 {
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 p {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 div {
     word-wrap: break-all;
 }
 
+.title { 
+    padding-bottom: 10px;
+}
 .summary {
     background-color: #ffffff;
     margin: 0px;
-    padding: 5px;
 }
 
 .cta {
     margin-top: 10px;
     text-align: center;
+
 }
 
 .button {
-    display: inline-block;
-    padding: 12px 24px 12px 24px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -52px;
+    bottom: 30px;
+    padding: 12px 20px 12px 20px;
     border-radius: 3px;
     background-color: rgb(31, 144, 219);
     color: white;
@@ -51,37 +62,49 @@ div {
 
 
 .parent {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    max-width: 380px;
+    margin-top: 20px;
     white-space: normal;
     padding: 0px 12px 12px 12px;
-    font-size: 12px;
 }
 
-.collection {
-    /* background-color: #c9d1dd; */
-    /* border-top-width: 2px; */
-    /* border-top-style: solid; */
-    /* border-top-color: #c9d1dd; */
-    /* background-color: #fcfcfc; */
+/* question answer */
+.topic {
 }
 
-.use {
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: #e8e8e8;
+.topic p {
+    padding-bottom: 5px;
 }
 
-.disclosure {
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: #e8e8e8;
+.question {
+    font-family: "proxima_nova_ltsemibold";
 }
 
-.choice {
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: #e8e8e8;
+.answer {
+    float: right;
+    font-family: "proxima_nova_ltsemibold";
+    text-transform: uppercase;
+}
 
+.clear {
+    clear: both;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.yes {
+    color: #e1990d;
+}
+
+.no {
+    color: #1f9c6e;
+}
+
+#site-title {
+    color: #1f9c6e;
+    font-family: "proxima_nova_ltsemibold";
+    text-transform: capitalize;
 }

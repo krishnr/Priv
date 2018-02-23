@@ -45,7 +45,6 @@ def summarize():
         #print relevant_lines[i] + "   :   " + elem
         #print "\n"
 
-
     predicted_labels = predicted_labels.tolist()
     # sorting labels by number of occurences
     predicted_labels.sort(key=Counter(predicted_labels).get, reverse=True)
