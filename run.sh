@@ -108,5 +108,10 @@ if [ "$test" = "1" ]; then
 fi
 
 if [ "$start" = "1" ]; then
+
     start
+fi
+
+if [ $# -eq 0 ]; then
+    echo 'No arguments found. Pass arguments: clean, test or start for more options.'
 fi

@@ -37,48 +37,6 @@ function getCurrentTabUrl(callback) {
 
     callback(url);
   });
-
-  // Most methods of the Chrome extension APIs are asynchronous. This means that
-  // you CANNOT do something like this:
-  //
-  // var url;
-  // chrome.tabs.query(queryInfo, (tabs) => {
-  //   url = tabs[0].url;
-  // });
-  // alert(url); // Shows "undefined", because chrome.tabs.query is async.
-}
-
-/**
- * Change the background color of the current page.
- *
- * @param {string} color The new background color.
- */
-function changeBackgroundColor(color) {
-  var script = 'document.body.style.backgroundColor="' + color + '";';
-  // See https://developer.chrome.com/extensions/tabs#method-executeScript.
-  // chrome.tabs.executeScript allows us to programmatically inject JavaScript
-  // into a page. Since we omit the optional first argument "tabId", the script
-  // is inserted into the active tab of the current window, which serves as the
-  // default.
-  chrome.tabs.executeScript({
-    code: script
-  });
-}
-
-/**
- * Gets the saved background color for url.
- *
- * @param {string} url URL whose background color is to be retrieved.
- * @param {function(string)} callback called with the saved background color for
- *     the given url on success, or a falsy value if no color is retrieved.
- */
-function getSavedBackgroundColor(url, callback) {
-  // See https://developer.chrome.com/apps/storage#type-StorageArea. We check
-  // for chrome.runtime.lastError to ensure correctness even when the API call
-  // fails.
-  chrome.storage.sync.get(url, (items) => {
-    callback(chrome.runtime.lastError ? null : items[url]);
-  });
 }
 
 // The chrome.storage API is used. This is different
@@ -89,29 +47,38 @@ function getSavedBackgroundColor(url, callback) {
 document.addEventListener('DOMContentLoaded', () => {
   getCurrentTabUrl((url) => {
     var span = document.getElementById('site-title');
-    span.innerHTML = getTLD(page_url);
+    // span.innerHTML = page_title;
+    span.innerHTML = getDomain(page_url);
     displayPrivacySummary(page_url);
   });
 });
 
 function displayPrivacySummary(page_url) {
   var xhr = new XMLHttpRequest();
-  var tld = getTLD(page_url);
+  var domain = getDomain(page_url);
 
-  xhr.open("GET", "http://localhost:5000/summarize?hostname=" + tld, true);
+  xhr.open("GET", "http://localhost:5000/summarize?hostname=" + domain, true);
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         var res = JSON.parse(xhr.response);
-        // Remove disclosure entities for now
-        delete res["disclosure"];
-        //formatCollection(res.disclosure, 'disclosure');
 
-        formatCollection(res.collection, 'collection');
-        formatCollection(res.use, 'use');
-        formatCollection(res.choice, 'choice');
+        // temporarily stub the request until the server response data is similar to this
+        var res = 
+        { 
+          "summary": {
+            "Tracks my IP address 1": "yes",
+            "Sends information to third parties 2": "no",
+            "Tracks my IP address 3": "yes",
+            "Sends information to third parties 4": "no"
+          },
+          "action": "https://advocacy.mozilla.org/en-US/privacynotincluded"
+        };
+
+        formatSummary(res['summary']);
+        formatAction(res['action']);
       } else {
-        console.error(xhr.statusText);
+        defaultDisplay(domain);
       }
     }
   };
@@ -121,22 +88,53 @@ function displayPrivacySummary(page_url) {
   xhr.send(null);
 }
 
-function getTLD(url) {
+function getDomain(url) {
   var parse = document.createElement('a');
   parse.href = url;
-  return parse.hostname.split(".")[1];
+  address = parse.hostname.split(".")
+  domain = address[address.length - 2] || address[0];
+  return domain;
 }
 
-function formatCollection(data, type) {
-  var text = []
+function formatSummary(data) {
+  Object.keys(data).forEach(function(key, index) {
+    var question = '<span class="question">' + key + '</span>';
+    var answer_yes = '<span class="answer yes">Yes</span>';
+    var answer_no = '<span class="answer no">No</span>';
 
-  Object.keys(data.more_info).forEach(function(key, index) {
-    text[index] = document.getElementById(type + '_' + index);
-    if (this[key] != " ") {
-      text[index].innerHTML = "<i class='em em-point_right'></i> " + this[key];
+    paragraph = document.createElement('p');
+    paragraph.className = 'clear';
+    paragraph.innerHTML = question;
+
+    switch(this[key]) {
+      case 'yes':
+          paragraph.innerHTML += answer_yes;
+          break;
+      case 'no':
+          paragraph.innerHTML += answer_no;
+          break;
+      default:
+          // Unsupported answer
     }
-    else {
-      text[index].style.display = "none";
-    }
-  }, data.more_info);
+
+    var items = document.getElementById("items");
+    items.appendChild(paragraph);
+  }, data);
+}
+
+function formatAction(link, type) {
+  document.getElementById("action").href=link; 
+}
+
+function defaultDisplay(domain) {
+  // page title
+  var title = document.getElementById("title");
+  title.innerHTML = "We don't currently have information about the " + "<span id='site-title'>" + domain + "</span> privacy policy!";
+  // remove action button
+  var action = document.getElementById("action");
+  action.style.display = 'none';
+  // make window smaller
+  var body = document.getElementById("body");
+  body.style.minHeight = '120px';
+
 }
