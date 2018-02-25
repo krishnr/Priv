@@ -12,8 +12,13 @@ def is_valid_line(line):
     # Assuming a heading (which we want to ignore) is less than 50 chars
     return len(line) > 100
 
+@app.route("/")
+def hello_world():
+    return 'Hello, world!'
+
 @app.route("/summarize")
 def summarize():
+    print("d00d")
     hostname = request.args.get('hostname')
     print(hostname)
 

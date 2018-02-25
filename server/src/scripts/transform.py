@@ -89,12 +89,12 @@ test_dataset += post_gazette
 
 folder = 'datasets'
 if not os.path.exists(folder):
-    print "Making directory: " + folder
+    print ("Making directory: " + folder)
     os.makedirs(folder)
 
 folder = 'pickles'
 if not os.path.exists(folder):
-    print "Making directory: " + folder
+    print ("Making directory: " + folder)
     os.makedirs(folder)
 
 pickle.dump(summary_dataset, open('datasets/summary_dataset.p', 'wb'))

@@ -7,6 +7,8 @@ exit=0
 clean=0
 start=0
 test=0
+headless=0
+quit=0
 
 virtual_env_setup()
 {
@@ -31,8 +33,10 @@ create_train_transform_sets()
     if [ ! -d datasets ]; then
         mkdir datasets
     fi
-    python3 scripts/transform.py
-    python3 scripts/train.py
+#    python3 src/scripts/transform.py
+#    python3 src/scripts/train.py
+    docker exec -it priv-server python3 src/scripts/train.py
+    docker exec -it priv-server python3 src/scripts/transform.py
 }
 
 clean()
@@ -61,7 +65,8 @@ start()
     fi
 
     echo "Starting server"
-    python3 server/run.py
+    #python3 src/run.py
+    docker exec -it priv-server python3 src/run.py
 }
 
 usage()
@@ -78,7 +83,7 @@ usage()
 
 test()
 {
-    python3 scripts/test.py
+    python3 src/scripts/test.py
 }
 
 while [ "$1" != "" ]; do
@@ -90,6 +95,10 @@ while [ "$1" != "" ]; do
                                 ;;
         -t | --test )           test=1
                                 ;;
+        -hd | --headless )      headless=1
+                                ;;
+        -q | --quit )           quit=1
+                                ;;
         start )                 start=1
 
     esac
@@ -97,7 +106,7 @@ while [ "$1" != "" ]; do
 done
 
 ### Initiate virtual environment and install Python dependencies
-init
+#init
 
 if [ "$clean" = "1" ]; then
     clean
@@ -112,6 +121,6 @@ if [ "$start" = "1" ]; then
     start
 fi
 
-if [ $# -eq 0 ]; then
-    echo 'No arguments found. Pass arguments: clean, test or start for more options.'
-fi
+#if [ $# -eq 0 ]; then
+#    echo 'No arguments found. Pass in start --help for more options.'
+#fi
