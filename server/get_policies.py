@@ -17,7 +17,6 @@ policy_dict = {
     'bloomberg': './policies/bloomberg.txt',
 }
 
-
 def get_policy(hostname):
     """Takes in a webpage's hostname and returns the policy as a string"""
 
