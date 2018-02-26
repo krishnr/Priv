@@ -2,22 +2,25 @@ import pickle
 from sklearn.metrics import f1_score
 import numpy as np
 from sklearn.externals import joblib
+import os.path
 
-with open('datasets/test_dataset.p', 'rb') as handle:
-    test_dataset = pickle.load(handle)
+curr_folder = os.path.dirname(__file__)
 
-raw_text = []
-dim_targets = []
-label_targets = []
-for item in test_dataset:
-    raw_text.append(item['raw_text'])
-    dim_targets.append(item['dimension'])
-    label_targets.append(item['label'])
+with open(os.path.join(curr_folder, '../datasets/X_test.p'), 'rb') as handle:
+    X_test = pickle.load(handle)
+with open(os.path.join(curr_folder, '../datasets/y_test.p'), 'rb') as handle:
+    y_test = pickle.load(handle)
 
-label_clf = joblib.load('pickles/label_clf.pkl')
-dim_clf = joblib.load('pickles/dim_clf.pkl')
+dim_clf = joblib.load(os.path.join(curr_folder, '../pickles/dim_clf.pkl'))
 
-predicted_labels = label_clf.predict(raw_text)
+score = dim_clf.score(X_test, y_test)
+print("Classifier accuracy: %.3f" % score)
 
-
-print (f1_score(label_targets, predicted_labels, average=None))
+# Print incorrect results
+# for i, x in enumerate(X_test):
+#     pred = dim_clf.predict([x])
+#     if pred != y_test[i]:
+#         print(x)
+#         print(list(zip(dim_clf.classes_, dim_clf.predict_proba([x])[0])))
+#         print(pred, y_test[i], sep='\n')
+#         print('\n\n')

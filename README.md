@@ -17,4 +17,5 @@ If Pip is not installed, visit [here](https://pip.pypa.io/en/stable/installing/)
 You can upgrade your pip installation by running `pip install -U pip`
  
 To start server, simply run `./run.sh start`  
+To train the ML classifier, run `./run.sh train`
 Use the `-h` or `--help` flags to view more information about the run script.
