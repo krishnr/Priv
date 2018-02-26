@@ -1,24 +1,227 @@
+import os
 import csv
+import re
 import json
 import pickle
-import os
+from sklearn.model_selection import train_test_split
 
-summary_dataset = []
-test_dataset = []
+curr_folder = os.path.dirname(__file__)
 
-dim_map = {
+dim_list = []
+def get_dimension(label, dimension):
+    """
+    Assigns labels to Priv dimensions:
+    - Identification
+    - Targeted Advertising
+    - Policy Change
+    - Do Not Track
+    - Security
+    - Retention
+    - Action
+    - Location
+    - Payment
+    - Disclosure
+    - Health
+    - Activity
+    - Deletion
+    - Social Media
+    - Personalization
+    - Contact Info
+    - Personal Info
+    - 3P Analysis
+    - 1P Analaysis
+    - 3P Collection
+    - 1P Collection
+    - Cookies
+    """
+
+    # Map of OPP 115 dimensions (not used anywhere--just for reference)
+    # Most of these are accounted for except for International and Other
+    dim_map = {
     'First Party Collection/Use': 'Collection',
-    'Third Party Sharing/Collection': 'Use',
+    'Third Party Sharing/Collection': 'Third Party',
     'User Choice/Control': 'Choices',
-    'User Access, Edit, & Deletion': 'Choices',
-    'Data Retention': 'Disclosure',
-    'Data Security': 'Disclosure', 
+    'User Access, Edit and Deletion': 'Choices',
+    'Data Retention': 'Retention',
+    'Data Security': 'Security', 
     'Policy Change': 'Choices',
-    'Do Not Track': 'Collection',
-}
+    'Do Not Track': 'Do Not Track',
+    'International and Specific Audiences': 'International',
+    'Other': 'Other'
+    }
+    
+    #### Rules for assigning labels to Priv dimensions
+
+    if any(s in label.lower() for s in ['ip address', 'device id']):
+        return 'Identification'
+    
+    if 'targeted advertising' in label.lower():
+        return 'Targeted Advertising'
+    
+    if any(s in label.lower() for s in ['change', 'update', 'notif']) or dimension == 'Policy Change':
+        return 'Policy Change'
+
+    if dimension == 'Do Not Track':
+        return 'Do Not Track'
+    
+    if dimension == 'Data Security':
+        return 'Security'
+    
+    if dimension == 'Data Retention' or 'is retained' in label.lower():
+        return 'Retention'
+    
+    if any(s in label.lower() for s in ['opt out', 'link', 'configuration', 'their information', 'deactivate', 'settings', 'choice', 'access', 'choose not to use', 'contact the company']):
+        return 'Action'
+    
+    if 'location' in label.lower():
+        return 'Location'
+
+    if any(s in label.lower() for s in ['financial', 'payment']):
+        return 'Payment'
+    
+    if any(s in label.lower() for s in ['legal', 'law']):
+        return 'Disclosure'
+    
+    if 'health' in label.lower():
+        return 'Health'
+    
+    if 'activities' in label.lower():
+        return 'Activity'
+
+    if all(s in label.lower() for s in ['delete', 'account']):
+        return 'Deletion'
+    
+    if 'social media' in label.lower():
+        return 'Social Media'
+    
+    if any(s in label.lower() for s in ['personalization', 'customization']):
+        return 'Personalization'
+
+    if 'contact information' in label.lower():
+        return 'Contact Info'
+
+    if any(s in label.lower() for s in ['demographic', 'identifiable', 'personal', 'profile']):
+        return 'Personal Info'
+
+    if any(s in label.lower() for s in ['analytics', 'research', 'aggregated', 'anonymized', 'survey']):
+        if 'third party' in label.lower():
+            return '3P Analysis'
+        else:
+            return '1P Analysis'
+
+    if 'cookies' in label.lower():
+        return 'Cookies'
+
+    if any(s in label.lower() for s in ['collect', 'information about you', 'collection']):
+        if 'third party' in label.lower():
+            return '3P Collection'
+        else:
+            return '1P Collection'
+
+    return None
+
+def get_answer(label, dimension):
+    yes_list = []
+    no_list = []
+    maybe_list = []
+    if dimension == 'Location':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in']
+
+    if dimension == 'Identification':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track']
+    
+    if dimension == 'Targeted Advertising':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does see', 'does do']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'does not do']
+        
+    if dimension == 'Policy Change':
+        yes_list = ['are notified', 'are personally notified']
+        no_list = ['no notification']
+        maybe_list = ['is posted as part of the policy']
+    
+    if dimension == 'Do Not Track':
+        yes_list = ['reads and adheres']
+        no_list = ['ignores', 'no statement']
+        maybe_list = ['unclear', 'handles']
+    
+    if dimension == 'Security':
+        yes_list = ['encrypted', 'has a privacy or security program/organization', 'security practices', 'security measures']
+        no_list = ['not mentioned']
+        maybe_list = ['generic security statements', 'specific security measure', 'need-to-know basis']
+    
+    if dimension == 'Retention':
+        yes_list = ['limited', 'stated']
+        maybe_list = ['unspecified duration', 'duration not covered']
+        no_list = ['indefinitely']
+        
+    if dimension == 'Action':
+        yes_list = ['can view', 'can edit', 'can configure', 'can choose', 'can access', 
+        'can use', 'can opt out', 'can deactivate', 'can make a choice', 'can export', 'contact']
+        no_list = ['no specified choices', 'can not access']
+    
+    if dimension == 'Payment':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in']
+
+    if dimension == 'Disclosure':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in']
+        
+    if dimension == 'Health':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do']
+    
+    if dimension == 'Deletion':
+        yes_list = ['can delete']
+        no_list = ['can not delete']
+        
+    if dimension == 'Social Media':
+        yes_list = ['collects']
+        no_list = ['does not collect']
+
+    if dimension == 'Personalization':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do']
+        
+    if dimension == 'Contact Info':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
+        
+    if dimension == 'Activity':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
+        
+    if dimension == 'Personal Info':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
+        maybe_list = ['outside of our label scheme']
+        
+    if dimension == '3P Analysis' or dimension == '1P Analysis':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
+    
+    if dimension == '3P Collection' or dimension == '1P Collection':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
+    
+    if dimension == 'Cookies':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
+    
+    if any(s in label.lower() for s in yes_list):
+        return 'Yes'
+    if any(s in label.lower() for s in no_list):
+        return 'No'
+    if any(s in label.lower() for s in maybe_list):
+        return 'Maybe'
+
+    # by default
+    return 'Maybe'
 
 def build_dataset(a_file, l_file):
-    dataset_arr = []
+    temp_list = []
     with open(a_file) as annotation_file:
         reader = csv.reader(annotation_file)
         for row in reader:
@@ -26,17 +229,21 @@ def build_dataset(a_file, l_file):
             annotation_id = row[0]
             opp_dimension = row[5]
             attrs = json.loads(row[6])
+
             raw_text = ''
             for category in attrs:
                 if 'selectedText' in attrs[category]:
-                    raw_text += ' ' + attrs[category]['selectedText']
+                    value = attrs[category]['value']
+                    selected_text = attrs[category]['selectedText']
+                    # cleanup of raw text selection
+                    if not value=='not-selected' and not value=='Unspecified' and 'null' not in selected_text:
+                        raw_text += ' ' + selected_text
 
             temp_dict['annotation_id'] = annotation_id
-            dimension = dim_map[opp_dimension] if opp_dimension in dim_map else 'None'
-            temp_dict['dimension'] = dimension
+            temp_dict['dimension'] = opp_dimension
             temp_dict['raw_text'] = raw_text
 
-            dataset_arr.append(temp_dict)
+            temp_list.append(temp_dict)
 
     label_dataset = {}
     with open(l_file) as label_file:
@@ -46,65 +253,81 @@ def build_dataset(a_file, l_file):
             label = row[3]
             label_dataset[annotation_id] = label
 
-    return_arr = []
-    removed_labels = [
-        'The text introduces the policy, a section, or a group of practices, but it does not mention a specific practice.',
-        'The text describes a specific data practice that is not covered by our label scheme.',
-        'The policy makes generic security statements, e.g., "we protect your data" or "we use technology/encryption to protect your data".',
-        'The text describes how to contact the company with questions, concerns, or complaints about the privacy policy.',
-        'The policy makes specific provisions for international audiences, non-US citizens, or non-European citizens (e.g., about international data transfer).',
-        'The text does not fit into our label scheme.',
-    ]
+    policy_data = []
     
-    for row in dataset_arr:
-        if label_dataset[row['annotation_id']] not in removed_labels:
-            row['label'] = label_dataset[row['annotation_id']]
-            return_arr.append(row)
+    for row in temp_list:
+        raw_text = row['raw_text']
+        label = label_dataset[row['annotation_id']]
+        dimension = get_dimension(label, row['dimension'])
+        
+        # exclude datapoints that don't fit into our dimensions
+        if not dimension:
+            continue
+        
+        answer = get_answer(label, dimension)
+        dim_list.append(dimension)
+        policy_data.append([row['raw_text'], label, dimension, answer])
 
-    return return_arr
+    return policy_data
 
-atlantic = build_dataset('OPP-115/annotations/20_theatlantic.com.csv', 'OPP-115/pretty_print/theatlantic.com.csv')
-summary_dataset += atlantic
+# Splitting the full dataset into train and test sets
+def split_dataset(full_dataset):
+    
+    raw_text = [row[0] for row in full_dataset]
+    labels = [row[1] for row in full_dataset]
+    X = raw_text + labels
+    y = [row[2] for row in full_dataset] * 2
 
-wapo = build_dataset('OPP-115/annotations/200_washingtonpost.com.csv', 'OPP-115/pretty_print/washingtonpost.com.csv')
-summary_dataset += wapo
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=4, stratify=y)
 
-thehill = build_dataset('OPP-115/annotations/1360_thehill.com.csv', 'OPP-115/pretty_print/thehill.com.csv')
-summary_dataset += thehill
+    pickle.dump(X_train, open(os.path.join(curr_folder, '../datasets/X_train.p'), 'wb'))
+    pickle.dump(X_test, open(os.path.join(curr_folder, '../datasets/X_test.p'), 'wb'))
+    pickle.dump(y_train, open(os.path.join(curr_folder, '../datasets/y_train.p'), 'wb'))
+    pickle.dump(y_test, open(os.path.join(curr_folder, '../datasets/y_test.p'), 'wb'))
 
-vox = build_dataset('OPP-115/annotations/32_voxmedia.com.csv', 'OPP-115/pretty_print/voxmedia.com.csv')
-summary_dataset += vox
+def main():
+    full_dataset = []
 
-timeinc = build_dataset('OPP-115/annotations/320_timeinc.com.csv', 'OPP-115/pretty_print/timeinc.com.csv')
-summary_dataset += timeinc
+    label_directory = os.path.join(curr_folder, '../OPP-115/pretty_print/')
+    annotation_directory = os.path.join(curr_folder, '../OPP-115/annotations/')
+    
+    """
+    build dataset for every single policy in OPP-115
+    dataset consists of 4 columns:
+    1) raw text from the policy
+    2) OPP 115 label
+    3) Priv dimension (defined in get_dimension fcn)
+    4) Priv answer (Yes/No/Maybe)
+    """
+    print('Building dataset...')
+    for filename in os.listdir(annotation_directory):
+        match = re.search('[\d]+_(.+)', filename)
+        label_name = match[1]
+        l_file = label_directory + label_name
+        a_file = annotation_directory + filename
+        policy_data = build_dataset(a_file, l_file)
+        full_dataset += policy_data
 
-nyt = build_dataset('OPP-115/annotations/26_nytimes.com.csv', 'OPP-115/pretty_print/nytimes.com.csv')
-test_dataset += nyt
+    # Printing the number of samples for each dimension
+    # print('Dimension counts:')
+    # counts =  [(x, dim_list.count(x)) for x in set(dim_list)]
+    # print(counts)
 
-daily_news = build_dataset('OPP-115/annotations/1683_dailynews.com.csv', 'OPP-115/pretty_print/dailynews.com.csv')
-test_dataset += daily_news
+    folder = os.path.join(curr_folder, '../datasets')
+    if not os.path.exists(folder):
+        print("Making directory: " + folder)
+        os.makedirs(folder)
 
-post_gazette = build_dataset('OPP-115/annotations/1610_post-gazette.com.csv', 'OPP-115/pretty_print/post-gazette.com.csv')
-test_dataset += post_gazette
+    print('Saving full dataset in full_dataset.csv...')
+    with open(os.path.join(curr_folder, '../datasets/full_dataset.csv'), 'w') as f:
+        wr = csv.writer(f,delimiter=',')
+        for row in full_dataset:
+            wr.writerow(row)
 
-folder = 'datasets'
-if not os.path.exists(folder):
-    print "Making directory: " + folder
-    os.makedirs(folder)
+    print('Splitting dataset into test and train sets...')
+    split_dataset(full_dataset)
+    
+    print('Done transforming data :)')
 
-folder = 'pickles'
-if not os.path.exists(folder):
-    print "Making directory: " + folder
-    os.makedirs(folder)
-
-pickle.dump(summary_dataset, open('datasets/summary_dataset.p', 'wb'))
-pickle.dump(test_dataset, open('datasets/test_dataset.p', 'wb'))
-
-with open('datasets/summary_dataset.p', 'rb') as handle:
-    dataset = pickle.load(handle)
-
-with open('datasets/test_dataset.p', 'rb') as test_handle:
-    test_dataset = pickle.load(test_handle)
-
-print (dataset)
-print (test_dataset)
+if __name__ == "__main__":
+    main()
