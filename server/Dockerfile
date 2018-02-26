@@ -6,7 +6,9 @@ COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
 
-COPY . .
+WORKDIR /server
+
+COPY . /server
 
 # expose server port for other containers
 EXPOSE 5000
