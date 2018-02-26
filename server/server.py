@@ -53,7 +53,7 @@ def summarize():
     score = 1
     i = 0
     dims = []
-    while len(top_preds) < 7 and score > 0.7 and i < len(predictions):
+    while len(top_preds) < 7 and score > 0.5 and i < len(predictions):
         score = predictions[i][2]
         dim = predictions[i][1]
         if dim not in dims:
