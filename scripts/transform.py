@@ -157,9 +157,9 @@ def get_answer(label, dimension):
         no_list = ['indefinitely']
         
     if dimension == 'Action':
-        yes_list = ['can view', 'can edit', 'can configure', 'can choose', 'can access', 
+        no_list = ['can view', 'can edit', 'can configure', 'can choose', 'can access', 
         'can use', 'can opt out', 'can deactivate', 'can make a choice', 'can export', 'contact']
-        no_list = ['no specified choices', 'can not access']
+        yes_list = ['no specified choices', 'can not access']
     
     if dimension == 'Payment':
         yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do']

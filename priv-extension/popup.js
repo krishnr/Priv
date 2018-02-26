@@ -63,18 +63,6 @@ function displayPrivacySummary(page_url) {
       if (xhr.status === 200) {
         var res = JSON.parse(xhr.response);
 
-        // temporarily stub the request until the server response data is similar to this
-        var res = 
-        { 
-          "summary": {
-            "Tracks my IP address 1": "yes",
-            "Sends information to third parties 2": "no",
-            "Tracks my IP address 3": "yes",
-            "Sends information to third parties 4": "no"
-          },
-          "action": "https://advocacy.mozilla.org/en-US/privacynotincluded"
-        };
-
         formatSummary(res['summary']);
         formatAction(res['action']);
       } else {
@@ -101,6 +89,7 @@ function formatSummary(data) {
     var question = '<span class="question">' + key + '</span>';
     var answer_yes = '<span class="answer yes">Yes</span>';
     var answer_no = '<span class="answer no">No</span>';
+    var answer_maybe = '<span class="answer maybe">Maybe</span>';
 
     paragraph = document.createElement('p');
     paragraph.className = 'clear';
@@ -113,6 +102,8 @@ function formatSummary(data) {
       case 'no':
           paragraph.innerHTML += answer_no;
           break;
+      case 'maybe':
+          paragraph.innerHTML += answer_maybe;
       default:
           // Unsupported answer
     }
