@@ -285,6 +285,25 @@ def split_dataset(full_dataset):
     pickle.dump(y_train, open(os.path.join(curr_folder, '../datasets/y_train.p'), 'wb'))
     pickle.dump(y_test, open(os.path.join(curr_folder, '../datasets/y_test.p'), 'wb'))
 
+    dim_data = {}
+    for dim in set(y):
+        dim_data[dim] = {}
+        
+        dim_rows = [row for row in full_dataset if row[2]==dim]
+        raw_text = [row[0] for row in dim_rows]
+        labels = [row[1] for row in dim_rows]
+        X = raw_text + labels
+        y = [row[3] for row in dim_rows] * 2
+        
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=4, stratify=y)
+        
+        dim_data[dim]['X_train'] = X_train
+        dim_data[dim]['X_test'] = X_test
+        dim_data[dim]['y_train'] = y_train
+        dim_data[dim]['y_test'] = y_test
+    
+    pickle.dump(dim_data, open(os.path.join(curr_folder, '../datasets/dim_data.p'), 'wb'))
+
 def main():
     full_dataset = []
 
