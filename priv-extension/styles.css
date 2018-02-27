@@ -1,6 +1,6 @@
 body {
     width: 350px;
-    min-height: 440px;
+    min-height: 490px;
     margin: 10px;
     white-space: nowrap;
     font-family: 'Proxima Nova', Georgia, sans-serif;
@@ -42,13 +42,16 @@ div {
     display: block;
     position: absolute;
     left: 50%;
-    margin-left: -52px;
-    bottom: 30px;
-    padding: 12px 20px 12px 20px;
-    border-radius: 3px;
-    background-color: rgb(31, 144, 219);
+    margin-left: -70px;
+    bottom: 65px;
+    width: 146px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: #1f9c6e;
     color: white;
-    font-weight: bold;
+    line-height: 42px;
+    font-size: 14px;
+    font-family: "proxima_nova_ltsemibold";
     text-transform: uppercase;
 }
 
@@ -57,7 +60,7 @@ div {
 }
 
 .button:hover {
-    background-color: rgb(25, 127, 190);   
+    background-color: #08af73;   
 }
 
 
@@ -107,4 +110,17 @@ div {
     color: #1f9c6e;
     font-family: "proxima_nova_ltsemibold";
     text-transform: capitalize;
+}
+
+.powered-by {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -45px;
+    bottom: 32px;
+    font-style: italic;
+}
+
+.priv {
+    color:  #1f9c6e;
 }

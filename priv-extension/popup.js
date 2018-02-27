@@ -70,7 +70,10 @@ function displayPrivacySummary(page_url) {
             "Tracks my IP address 1": "yes",
             "Sends information to third parties 2": "no",
             "Tracks my IP address 3": "yes",
-            "Sends information to third parties 4": "no"
+            "Sends information to third parties 4": "no",
+            "Tracks my IP address 5": "yes",
+            "Sends information to third parties 6": "no",
+            "Tracks my IP address 7": "yes"
           },
           "action": "https://advocacy.mozilla.org/en-US/privacynotincluded"
         };
