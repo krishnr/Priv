@@ -1,46 +1,47 @@
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 import numpy as np
 from sklearn.externals import joblib
+import os
 
-with open('datasets/summary_dataset.p', 'rb') as handle:
-    dataset = pickle.load(handle)
+curr_folder = os.path.dirname(__file__)
 
-raw_text = []
-dim_targets = []
-label_targets = []
-label_dict = {}
-for item in dataset:
-    raw_text.append(item['raw_text'])
-    dim_targets.append(item['dimension'])
-    # if item['dimension'] == 'None':
-    #     label_targets.append('None')
-    # else:
-    label_targets.append(item['label'])
-    label_dict[item['label']] = item['dimension']
+with open(os.path.join(curr_folder, '../datasets/X_train.p'), 'rb') as handle:
+    X_train = pickle.load(handle)
+with open(os.path.join(curr_folder,'../datasets/y_train.p'), 'rb') as handle:
+    y_train = pickle.load(handle)
+with open(os.path.join(curr_folder, '../datasets/dim_data.p'), 'rb') as handle:
+    dim_data = pickle.load(handle)
 
-# counts =  [label_targets.count(x) for x in set(label_targets)]
-# counts.sort(reverse=True)
-# print counts
-
-dim_clf = Pipeline([('vect', CountVectorizer()),
-                      ('tfidf', TfidfTransformer()),
-                      ('clf', MultinomialNB(fit_prior=False)),
+clf = Pipeline([('vect', CountVectorizer()),
+                ('tfidf', TfidfTransformer()),
+                ('clf', RandomForestClassifier()),
 ])
 
-dim_clf = dim_clf.fit(raw_text, dim_targets)
+print("Training dimension classifier...")
+dim_clf = clf.fit(X_train, y_train)
 
-label_clf = Pipeline([('vect', CountVectorizer()),
-                      ('tfidf', TfidfTransformer()),
-                      ('clf', MultinomialNB(fit_prior=False)),
-])
+print("Training answer classifiers...")
+ans_clfs = {}
+for dim in dim_data:
+    clf = Pipeline([('vect', CountVectorizer()),
+                ('tfidf', TfidfTransformer()),
+                ('clf', RandomForestClassifier()),
+    ])
 
-label_clf = label_clf.fit(raw_text, label_targets)
+    X_train = dim_data[dim]['X_train']
+    y_train = dim_data[dim]['y_train']
 
-joblib.dump(label_clf, 'pickles/label_clf.pkl')
-joblib.dump(dim_clf, 'pickles/dim_clf.pkl')
+    ans_clf = clf.fit(X_train, y_train)
+    ans_clfs[dim] = ans_clf
 
-pickle.dump(label_dict, open('pickles/label_dict.p', 'wb'))
+folder = os.path.join(curr_folder, '../pickles')
+if not os.path.exists(folder):
+    print("Making directory: " + folder)
+    os.makedirs(folder)
+
+joblib.dump(dim_clf, os.path.join(curr_folder, '../pickles/dim_clf.pkl'))
+joblib.dump(ans_clfs, os.path.join(curr_folder, '../pickles/ans_clfs.pkl'))
