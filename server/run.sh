@@ -9,6 +9,7 @@ start=0
 test=0
 headless=0
 quit=0
+dockerize=0
 
 virtual_env_setup()
 {
@@ -31,10 +32,13 @@ create_train_transform_sets()
     if [ ! -d datasets ]; then
         mkdir datasets
     fi
-    python3 src/scripts/transform.py
-    python3 src/scripts/train.py
-#    docker exec -it priv-server python3 src/scripts/train.py
-#    docker exec -it priv-server python3 src/scripts/transform.py
+    if [ "$dockerize" = "1" ]; then
+        docker exec -it priv-server python3 src/scripts/transform.py
+        docker exec -it priv-server python3 src/scripts/train.py
+    else
+        python3 src/scripts/transform.py
+        python3 src/scripts/train.py
+    fi
 }
 
 clean()
@@ -61,8 +65,13 @@ start()
     fi
 
     echo "Starting server"
-    python3 src/run.py
-    #docker exec -it priv-server python3 src/run.py
+
+    if [ "$dockerize" = "1" ]; then
+        echo "Running on docker container"
+        docker exec -it priv-server python3 src/run.py
+    else
+        python3 src/run.py
+    fi
 }
 
 usage()
@@ -74,18 +83,27 @@ usage()
     -c, --clean                 Removes Python-generated files and rebuilds pickles
     -h, --help                  Show help
     -t, --test                  Runs NLP test scripts
+    -d, --docker                Runs from docker container priv-server. NOTE need to run ./build-image.sh and ./container-run.sh
     "
 }
 
 test()
 {
-    python3 src/scripts/test.py
+    if [ "$dockerize" = "1" ]; then
+        docker exec -it priv-server python3 src/scripts/test.py
+    else
+        python3 src/scripts/test.py
+    fi
 }
 
 train()
 {
-    create_train_transform_sets
-    python3 scripts/test.py
+    docker exec -it priv-server python3 src/scripts/test.py
+    if [ "$dockerize" = "1" ]; then
+        docker exec -it priv-server python3 src/scripts/test.py
+    else
+        python3 scripts/test.py
+    fi
 }
 
 while [ "$1" != "" ]; do
@@ -100,6 +118,8 @@ while [ "$1" != "" ]; do
         -hd | --headless )      headless=1
                                 ;;
         -q | --quit )           quit=1
+                                ;;
+        -d | --docker )         dockerize=1
                                 ;;
         start )                 start=1
                                 ;;
@@ -121,7 +141,6 @@ if [ "$test" = "1" ]; then
 fi
 
 if [ "$start" = "1" ]; then
-
     start
 fi
 
