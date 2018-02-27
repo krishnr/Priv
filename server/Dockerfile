@@ -1,5 +1,5 @@
 # base python
-FROM python:3
+FROM tiangolo/uwsgi-nginx-flask:python3.6
 
 # add requirements and install in root
 COPY requirements.txt ./
