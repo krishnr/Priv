@@ -12,13 +12,11 @@ quit=0
 
 virtual_env_setup()
 {
-    echo "Checking if virtualenv is installed"
     if ! virtualenv --version &>/dev/null; then
         echo "No virtualenv found, installing"
         pip install virtualenv
     fi
 
-    echo "Checking if virtual environment has been created"
     if [ ! -d virtualenv_Priv ]; then
         echo "No virtualenv directory found, creating"
         virtualenv -p python3 virtualenv_Priv
@@ -33,10 +31,10 @@ create_train_transform_sets()
     if [ ! -d datasets ]; then
         mkdir datasets
     fi
-#    python3 src/scripts/transform.py
-#    python3 src/scripts/train.py
-    docker exec -it priv-server python3 src/scripts/train.py
-    docker exec -it priv-server python3 src/scripts/transform.py
+    python3 src/scripts/transform.py
+    python3 src/scripts/train.py
+#    docker exec -it priv-server python3 src/scripts/train.py
+#    docker exec -it priv-server python3 src/scripts/transform.py
 }
 
 clean()
@@ -51,8 +49,6 @@ clean()
 init()
 {
     virtual_env_setup
-
-    echo "Installing requirements..."
     pip install -r requirements.txt -q
 }
 
@@ -65,8 +61,8 @@ start()
     fi
 
     echo "Starting server"
-    #python3 src/run.py
-    docker exec -it priv-server python3 src/run.py
+    python3 src/run.py
+    #docker exec -it priv-server python3 src/run.py
 }
 
 usage()
@@ -86,6 +82,12 @@ test()
     python3 src/scripts/test.py
 }
 
+train()
+{
+    create_train_transform_sets
+    python3 scripts/test.py
+}
+
 while [ "$1" != "" ]; do
     case $1 in
         -c | --clean )          clean=1
@@ -100,6 +102,8 @@ while [ "$1" != "" ]; do
         -q | --quit )           quit=1
                                 ;;
         start )                 start=1
+                                ;;
+        train )                 train=1
 
     esac
     shift
@@ -121,6 +125,12 @@ if [ "$start" = "1" ]; then
     start
 fi
 
+if [ "$train" = "1" ]; then
+    train
+    exit
+fi
+
 #if [ $# -eq 0 ]; then
-#    echo 'No arguments found. Pass in start --help for more options.'
+#    echo 'No arguments found. Pass arguments: clean, test or start for more options.'
 #fi
+
