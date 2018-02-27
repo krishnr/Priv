@@ -103,6 +103,10 @@ div {
     color: #1f9c6e;
 }
 
+.maybe {
+    color: grey;
+}
+
 #site-title {
     color: #1f9c6e;
     font-family: "proxima_nova_ltsemibold";

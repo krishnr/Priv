@@ -106,8 +106,8 @@ def build_dataset(a_file, l_file):
 
 labels_list = []
 
-label_directory = '../OPP-115/pretty_print/'
-annotation_directory = '../OPP-115/annotations/'
+label_directory = '../../OPP-115/pretty_print/'
+annotation_directory = '../../OPP-115/annotations/'
 
 
 for filename in os.listdir(annotation_directory):
@@ -123,7 +123,7 @@ labels_list = list(set(labels_list))
 counts =  [(x, dim_list.count(x)) for x in set(dim_list)]
 print(counts)
 
-with open('../labels_list.csv', 'w') as f:
+with open('../../labels_list.csv', 'w') as f:
     wr = csv.writer(f,delimiter=',')
     for line in labels_list:
         wr.writerow(line)
