@@ -6,9 +6,11 @@ COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
 
-WORKDIR /server
+WORKDIR /app
 
-COPY . /server
+COPY . /app
+#
+ENV UWSGI_INI /app/uwsgi.ini
 
 # expose server port for other containers
-EXPOSE 5000
+EXPOSE 80

@@ -2,10 +2,10 @@ from flask import Flask, jsonify, request
 from sklearn.externals import joblib
 from collections import Counter
 import pickle
-import get_policies
+from . import get_policies
 import os.path
 from operator import itemgetter
-from get_question import get_question
+from . import get_question
 
 app = Flask(__name__)
 curr_folder = os.path.dirname(__file__)
@@ -77,7 +77,7 @@ def summarize():
     
     # construct output
     for pred in top_preds:
-        question = get_question(pred[1])
+        question = get_question.get_question(pred[1])
         ans = pred[3]
         output["summary"][question] = ans
     
