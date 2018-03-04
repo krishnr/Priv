@@ -57,7 +57,8 @@ function displayPrivacySummary(page_url) {
   var xhr = new XMLHttpRequest();
   var domain = getDomain(page_url);
 
-  xhr.open("GET", "http://localhost:80/summarize?hostname=" + domain, true);
+  // Change to localhost below in order to run on development server
+  xhr.open("GET", "http://ec2-18-219-251-103.us-east-2.compute.amazonaws.com:80/summarize?hostname=" + domain, true);
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {

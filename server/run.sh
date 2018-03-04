@@ -9,22 +9,6 @@ start=0
 test=0
 headless=0
 quit=0
-dockerize=0
-
-virtual_env_setup()
-{
-    if ! virtualenv --version &>/dev/null; then
-        echo "No virtualenv found, installing"
-        pip install virtualenv
-    fi
-
-    if [ ! -d virtualenv_Priv ]; then
-        echo "No virtualenv directory found, creating"
-        virtualenv -p python3 virtualenv_Priv
-    fi
-
-    . virtualenv_Priv/bin/activate
-}
 
 create_train_transform_sets()
 {
@@ -32,12 +16,13 @@ create_train_transform_sets()
     if [ ! -d datasets ]; then
         mkdir datasets
     fi
-    if [ "$dockerize" = "1" ]; then
+
+    if [ "$headless" = "1" ]; then
+        docker exec priv-server python3 src/scripts/transform.py
+        docker exec priv-server python3 src/scripts/train.py
+    else
         docker exec -it priv-server python3 src/scripts/transform.py
         docker exec -it priv-server python3 src/scripts/train.py
-    else
-        python3 src/scripts/transform.py
-        python3 src/scripts/train.py
     fi
 }
 
@@ -50,12 +35,6 @@ clean()
     create_train_transform_sets
 }
 
-init()
-{
-    virtual_env_setup
-    pip install -r requirements.txt -q
-}
-
 start()
 {
     pickle_files=(pickles/*.pkl)
@@ -66,11 +45,11 @@ start()
 
     echo "Starting server"
 
-    if [ "$dockerize" = "1" ]; then
-        echo "Running on docker container"
-        docker exec -it priv-server python3 src/run.py
+    if [ "$headless" = "1" ]; then
+        echo "Running headless"
+        docker exec priv-server python3 src/run.py
     else
-        python3 src/run.py
+        docker exec -it priv-server python3 src/run.py
     fi
 }
 
@@ -83,26 +62,26 @@ usage()
     -c, --clean                 Removes Python-generated files and rebuilds pickles
     -h, --help                  Show help
     -t, --test                  Runs NLP test scripts
-    -d, --docker                Runs from docker container priv-server. NOTE need to run ./build-image.sh and ./container-run.sh
+    -hd, --headless             Runs as a headless PID
     "
 }
 
 test()
 {
-    if [ "$dockerize" = "1" ]; then
-        docker exec -it priv-server python3 src/scripts/test.py
+    if [ "$headless" = "1" ]; then
+        docker exec priv-server python3 src/scripts/test.py
     else
-        python3 src/scripts/test.py
+        docker exec -it priv-server python3 src/scripts/test.py
     fi
 }
 
 train()
 {
-    docker exec -it priv-server python3 src/scripts/test.py
-    if [ "$dockerize" = "1" ]; then
-        docker exec -it priv-server python3 src/scripts/test.py
+    create_train_transform_sets
+    if [ "$headless" = "1" ]; then
+        docker exec priv-server python3 src/scripts/test.py
     else
-        python3 scripts/test.py
+        docker exec -it priv-server python3 src/scripts/test.py
     fi
 }
 
@@ -119,8 +98,6 @@ while [ "$1" != "" ]; do
                                 ;;
         -q | --quit )           quit=1
                                 ;;
-        -d | --docker )         dockerize=1
-                                ;;
         start )                 start=1
                                 ;;
         train )                 train=1
@@ -130,7 +107,6 @@ while [ "$1" != "" ]; do
 done
 
 ### Initiate virtual environment and install Python dependencies
-#init
 
 if [ "$clean" = "1" ]; then
     clean
