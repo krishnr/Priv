@@ -8,6 +8,8 @@ from sklearn.model_selection import train_test_split
 curr_folder = os.path.dirname(__file__)
 
 dim_list = []
+
+
 def get_dimension(label, dimension):
     """
     Assigns labels to Priv dimensions:
@@ -120,6 +122,7 @@ def get_dimension(label, dimension):
 
     return None
 
+
 def get_answer(label, dimension):
     yes_list = []
     no_list = []
@@ -220,6 +223,7 @@ def get_answer(label, dimension):
     # by default
     return 'Maybe'
 
+
 def build_dataset(a_file, l_file):
     temp_list = []
     with open(a_file) as annotation_file:
@@ -270,6 +274,7 @@ def build_dataset(a_file, l_file):
 
     return policy_data
 
+
 # Splitting the full dataset into train and test sets
 def split_dataset(full_dataset):
     
@@ -280,10 +285,10 @@ def split_dataset(full_dataset):
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=4, stratify=y)
 
-    pickle.dump(X_train, open(os.path.join(curr_folder, '../datasets/X_train.p'), 'wb'))
-    pickle.dump(X_test, open(os.path.join(curr_folder, '../datasets/X_test.p'), 'wb'))
-    pickle.dump(y_train, open(os.path.join(curr_folder, '../datasets/y_train.p'), 'wb'))
-    pickle.dump(y_test, open(os.path.join(curr_folder, '../datasets/y_test.p'), 'wb'))
+    pickle.dump(X_train, open(os.path.join(curr_folder, '../../datasets/X_train.p'), 'wb'))
+    pickle.dump(X_test, open(os.path.join(curr_folder, '../../datasets/X_test.p'), 'wb'))
+    pickle.dump(y_train, open(os.path.join(curr_folder, '../../datasets/y_train.p'), 'wb'))
+    pickle.dump(y_test, open(os.path.join(curr_folder, '../../datasets/y_test.p'), 'wb'))
 
     dim_data = {}
     for dim in set(y):
@@ -302,13 +307,14 @@ def split_dataset(full_dataset):
         dim_data[dim]['y_train'] = y_train
         dim_data[dim]['y_test'] = y_test
     
-    pickle.dump(dim_data, open(os.path.join(curr_folder, '../datasets/dim_data.p'), 'wb'))
+    pickle.dump(dim_data, open(os.path.join(curr_folder, '../../datasets/dim_data.p'), 'wb'))
+
 
 def main():
     full_dataset = []
 
-    label_directory = os.path.join(curr_folder, '../OPP-115/pretty_print/')
-    annotation_directory = os.path.join(curr_folder, '../OPP-115/annotations/')
+    label_directory = os.path.join(curr_folder, '../../OPP-115/pretty_print/')
+    annotation_directory = os.path.join(curr_folder, '../../OPP-115/annotations/')
     
     """
     build dataset for every single policy in OPP-115
@@ -321,7 +327,7 @@ def main():
     print('Building dataset...')
     for filename in os.listdir(annotation_directory):
         match = re.search('[\d]+_(.+)', filename)
-        label_name = match[1]
+        label_name = match.group(1)
         l_file = label_directory + label_name
         a_file = annotation_directory + filename
         policy_data = build_dataset(a_file, l_file)
@@ -332,13 +338,13 @@ def main():
     # counts =  [(x, dim_list.count(x)) for x in set(dim_list)]
     # print(counts)
 
-    folder = os.path.join(curr_folder, '../datasets')
+    folder = os.path.join(curr_folder, '../../datasets')
     if not os.path.exists(folder):
         print("Making directory: " + folder)
         os.makedirs(folder)
 
     print('Saving full dataset in full_dataset.csv...')
-    with open(os.path.join(curr_folder, '../datasets/full_dataset.csv'), 'w') as f:
+    with open(os.path.join(curr_folder, '../../datasets/full_dataset.csv'), 'w') as f:
         wr = csv.writer(f,delimiter=',')
         for row in full_dataset:
             wr.writerow(row)
@@ -347,6 +353,7 @@ def main():
     split_dataset(full_dataset)
     
     print('Done transforming data :)')
+
 
 if __name__ == "__main__":
     main()

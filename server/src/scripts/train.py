@@ -9,11 +9,11 @@ import os
 
 curr_folder = os.path.dirname(__file__)
 
-with open(os.path.join(curr_folder, '../datasets/X_train.p'), 'rb') as handle:
+with open(os.path.join(curr_folder, '../../datasets/X_train.p'), 'rb') as handle:
     X_train = pickle.load(handle)
-with open(os.path.join(curr_folder,'../datasets/y_train.p'), 'rb') as handle:
+with open(os.path.join(curr_folder,'../../datasets/y_train.p'), 'rb') as handle:
     y_train = pickle.load(handle)
-with open(os.path.join(curr_folder, '../datasets/dim_data.p'), 'rb') as handle:
+with open(os.path.join(curr_folder, '../../datasets/dim_data.p'), 'rb') as handle:
     dim_data = pickle.load(handle)
 
 clf = Pipeline([('vect', CountVectorizer()),
@@ -38,10 +38,10 @@ for dim in dim_data:
     ans_clf = clf.fit(X_train, y_train)
     ans_clfs[dim] = ans_clf
 
-folder = os.path.join(curr_folder, '../pickles')
+folder = os.path.join(curr_folder, '../../pickles')
 if not os.path.exists(folder):
     print("Making directory: " + folder)
     os.makedirs(folder)
 
-joblib.dump(dim_clf, os.path.join(curr_folder, '../pickles/dim_clf.pkl'))
-joblib.dump(ans_clfs, os.path.join(curr_folder, '../pickles/ans_clfs.pkl'))
+joblib.dump(dim_clf, os.path.join(curr_folder, '../../pickles/dim_clf.pkl'))
+joblib.dump(ans_clfs, os.path.join(curr_folder, '../../pickles/ans_clfs.pkl'))
