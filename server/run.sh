@@ -7,26 +7,23 @@ exit=0
 clean=0
 start=0
 test=0
-
-virtual_env_setup()
-{
-    if ! virtualenv --version &>/dev/null; then
-        echo "No virtualenv found, installing"
-        pip install virtualenv
-    fi
-
-    if [ ! -d virtualenv_Priv ]; then
-        echo "No virtualenv directory found, creating"
-        virtualenv -p python3 virtualenv_Priv
-    fi
-
-    . virtualenv_Priv/bin/activate
-}
+headless=0
+quit=0
 
 create_train_transform_sets()
 {
-    python3 scripts/transform.py
-    python3 scripts/train.py
+    echo "Creating data set pickles..."
+    if [ ! -d datasets ]; then
+        mkdir datasets
+    fi
+
+    if [ "$headless" = "1" ]; then
+        docker exec priv-server python3 src/scripts/transform.py
+        docker exec priv-server python3 src/scripts/train.py
+    else
+        docker exec -it priv-server python3 src/scripts/transform.py
+        docker exec -it priv-server python3 src/scripts/train.py
+    fi
 }
 
 clean()
@@ -38,12 +35,6 @@ clean()
     create_train_transform_sets
 }
 
-init()
-{
-    virtual_env_setup
-    pip install -r requirements.txt -q
-}
-
 start()
 {
     pickle_files=(pickles/*.pkl)
@@ -53,7 +44,13 @@ start()
     fi
 
     echo "Starting server"
-    python3 server/run.py
+
+    if [ "$headless" = "1" ]; then
+        echo "Running headless"
+        docker exec priv-server python3 src/run.py
+    else
+        docker exec -it priv-server python3 src/run.py
+    fi
 }
 
 usage()
@@ -65,18 +62,27 @@ usage()
     -c, --clean                 Removes Python-generated files and rebuilds pickles
     -h, --help                  Show help
     -t, --test                  Runs NLP test scripts
+    -hd, --headless             Runs as a headless PID
     "
 }
 
 test()
 {
-    python3 scripts/test.py
+    if [ "$headless" = "1" ]; then
+        docker exec priv-server python3 src/scripts/test.py
+    else
+        docker exec -it priv-server python3 src/scripts/test.py
+    fi
 }
 
 train()
 {
     create_train_transform_sets
-    python3 scripts/test.py
+    if [ "$headless" = "1" ]; then
+        docker exec priv-server python3 src/scripts/test.py
+    else
+        docker exec -it priv-server python3 src/scripts/test.py
+    fi
 }
 
 while [ "$1" != "" ]; do
@@ -88,6 +94,10 @@ while [ "$1" != "" ]; do
                                 ;;
         -t | --test )           test=1
                                 ;;
+        -hd | --headless )      headless=1
+                                ;;
+        -q | --quit )           quit=1
+                                ;;
         start )                 start=1
                                 ;;
         train )                 train=1
@@ -97,7 +107,6 @@ while [ "$1" != "" ]; do
 done
 
 ### Initiate virtual environment and install Python dependencies
-init
 
 if [ "$clean" = "1" ]; then
     clean
@@ -108,7 +117,6 @@ if [ "$test" = "1" ]; then
 fi
 
 if [ "$start" = "1" ]; then
-
     start
 fi
 
@@ -117,6 +125,7 @@ if [ "$train" = "1" ]; then
     exit
 fi
 
-if [ $# -eq 0 ]; then
-    echo 'No arguments found. Pass arguments: clean, test or start for more options.'
-fi
+#if [ $# -eq 0 ]; then
+#    echo 'No arguments found. Pass arguments: clean, test or start for more options.'
+#fi
+

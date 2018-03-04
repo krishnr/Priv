@@ -4,18 +4,17 @@
 Go to `chrome://extensions/`, click "Load Unpacked Extensions" and select directory that includes manifest.json file. In this case, it is the priv-extension directory.
 
 
-## Server
-In order to run the start script, you need both Python and Pip installed on your machines. All Macs come with Python pre-installed, visit [here](https://www.python.org/downloads/) for information on how to download Python onto your Linux or Windows machine.
+## Deployment
 
-To check if Python is installed, run `python --version`  
-This should output something similar to: `python X.X.X`
+To locally deploy the Chrome extension, you need Docker installed on your machine.
 
-To check if Pip is installed, run `which pip`  
-If it is installed, it should show something similar to `path/to/your/python/version/bin/pip`
+To check if you have Docker, run `docker --version`
+This should output something similar to: `Docker version 17.12.0-ce, build c97c6d6`
 
-If Pip is not installed, visit [here](https://pip.pypa.io/en/stable/installing/)  
-You can upgrade your pip installation by running `pip install -U pip`
- 
-To start server, simply run `./run.sh start`  
-To train the ML classifier, run `./run.sh train`  
-Use the `-h` or `--help` flags to view more information about the run script.
+Visit [here](https://store.docker.com/search?type=edition&offering=community) for instructions on how to install docker
+
+Change the xhr request in `client/popup.js` from the `amazonaws.com` domain to `localhost:80/`
+
+
+Once you have Docker installed, simply run `bash start.sh`
+

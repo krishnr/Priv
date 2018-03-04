@@ -2,17 +2,19 @@ from flask import Flask, jsonify, request
 from sklearn.externals import joblib
 from collections import Counter
 import pickle
-import get_policies
+from . import get_policies
 import os.path
 from operator import itemgetter
-from get_question import get_question
+from . import get_question
 
 app = Flask(__name__)
 curr_folder = os.path.dirname(__file__)
 
+
 def is_valid_line(line):
     # Assuming a heading (which we want to ignore) is less than 50 chars
     return len(line) > 100
+
 
 def tokenize_into_sentences(policy):
     pp_lines = []
@@ -22,6 +24,7 @@ def tokenize_into_sentences(policy):
     
     return pp_lines
 
+
 @app.route("/summarize")
 def summarize():
     hostname = request.args.get('hostname')
@@ -29,7 +32,6 @@ def summarize():
 
     # Find the right file based on the website we're on
     policy = get_policies.get_policy(hostname)
-
     dim_clf = joblib.load(os.path.join(curr_folder, '../pickles/dim_clf.pkl'))
     ans_clfs = joblib.load(os.path.join(curr_folder, '../pickles/ans_clfs.pkl'))
 
@@ -75,7 +77,7 @@ def summarize():
     
     # construct output
     for pred in top_preds:
-        question = get_question(pred[1])
+        question = get_question.get_question(pred[1])
         ans = pred[3]
         output["summary"][question] = ans
     
