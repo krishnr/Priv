@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 echo "Running prestart script"
-./run.sh -c
+bash run.sh -c
