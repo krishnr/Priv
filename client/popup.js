@@ -73,6 +73,7 @@ function displayPrivacySummary(page_url) {
   };
   xhr.onerror = function (e) {
     console.error(xhr.statusText);
+    defaultDisplay(domain);
   };
   xhr.send(null);
 }
