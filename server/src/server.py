@@ -6,6 +6,9 @@ from . import get_policies
 import os.path
 from operator import itemgetter
 from . import get_question
+import nltk
+
+nltk.download('punkt')
 
 app = Flask(__name__)
 curr_folder = os.path.dirname(__file__)
@@ -17,11 +20,7 @@ def is_valid_line(line):
 
 
 def tokenize_into_sentences(policy):
-    pp_lines = []
-    for line in policy.split('\n'):
-        if is_valid_line(line):
-            pp_lines.append(line)
-    
+    pp_lines = nltk.sent_tokenize(policy)
     return pp_lines
 
 
