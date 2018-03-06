@@ -18,11 +18,11 @@ create_train_transform_sets()
     fi
 
     if [ "$headless" = "1" ]; then
-        docker exec priv-server python3 src/scripts/transform.py
-        docker exec priv-server python3 src/scripts/train.py
+        python3 src/scripts/transform.py &
+        python3 src/scripts/train.py &
     else
-        docker exec -it priv-server python3 src/scripts/transform.py
-        docker exec -it priv-server python3 src/scripts/train.py
+        python3 src/scripts/transform.py
+        python3 src/scripts/train.py
     fi
 }
 
