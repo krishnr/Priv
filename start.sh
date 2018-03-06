@@ -15,5 +15,9 @@ fi
 # Remove any running containers
 docker rm -f $(docker ps -a -q --filter name=priv-server) 2>/dev/null
 
+# Uncomment the two lines below in order to remove the image and rebuild it (necessary after making script changes)
+#docker rmi priv-server-image
+#bash build-image.sh
+
 # To customize running the server, make changes to /src/prestart.sh script (i.e. adding --headless or --test)
 bash container-run.sh
