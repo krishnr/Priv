@@ -1,5 +1,28 @@
 #!/usr/bin/env bash
 
+remove_image=0
+
+usage()
+{
+    echo "Usage:
+    bash start.sh [options]
+
+    General Options:
+    -r, --remove_image                 Removes Docker image and rebuilds image from scratch
+    "
+}
+
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -r | --remove_image )   remove_image=1
+                                ;;
+        -h | --help )           usage
+                                exit
+    esac
+    shift
+done
+
 # Start server container
 echo "Starting server"
 cd server
@@ -15,9 +38,13 @@ fi
 # Remove any running containers
 docker rm -f $(docker ps -a -q --filter name=priv-server) 2>/dev/null
 
-# Uncomment the two lines below in order to remove the image and rebuild it (necessary after making script changes)
-#docker rmi priv-server-image
-#bash build-image.sh
+if [ "$remove_image" = "1" ]; then
+    docker rmi priv-server-image
+    bash build-image.sh
+fi
 
 # To customize running the server, make changes to /src/prestart.sh script (i.e. adding --headless or --test)
 bash container-run.sh
+
+echo "Tailing logs"
+docker logs -f $(docker ps -a -q --filter name=priv-server)
