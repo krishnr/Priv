@@ -54,8 +54,6 @@ def get_dimension(label, dimension):
     
     #### Rules for assigning labels to Priv dimensions
 
-    if any(s in label.lower() for s in ['ip address', 'device id']):
-        return 'Identification'
     
     if 'targeted advertising' in label.lower():
         return 'Targeted Advertising'
@@ -95,6 +93,9 @@ def get_dimension(label, dimension):
     
     if 'social media' in label.lower():
         return 'Social Media'
+    
+    if any(s in label.lower() for s in ['ip address', 'device id']):
+        return 'Identification'
     
     if any(s in label.lower() for s in ['personalization', 'customization']):
         return 'Personalization'
