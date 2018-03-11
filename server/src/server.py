@@ -68,6 +68,7 @@ def summarize():
         raw_text = pred[0]
         ans = ans_clfs[dim].predict([raw_text])[0].lower()
         pred.append(ans)
+        pred.append(raw_text)
     
     output = {
         "summary": {},
@@ -78,7 +79,8 @@ def summarize():
     for pred in top_preds:
         question = get_question.get_question(pred[1])
         ans = pred[3]
-        output["summary"][question] = ans
+        raw_text = pred[4]
+        output["summary"][question] = [ans, raw_text]
     
     print(output)
     return jsonify(output)
