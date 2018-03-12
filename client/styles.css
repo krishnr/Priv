@@ -57,7 +57,7 @@ div {
     color: white;
     line-height: 42px;
     font-size: 14px;
-    font-family: "proxima_nova_ltsemibold";
+    font-family: "proxima_nova_semibold";
     text-transform: uppercase;
 }
 
@@ -83,14 +83,14 @@ div {
 }
 
 .question {
-    font-family: "proxima_nova_ltsemibold";
+    font-family: "proxima_nova_semibold";
     display: inline-block;
     max-width: 280px;
 }
 
 .answer {
     float: right;
-    font-family: "proxima_nova_ltsemibold";
+    font-family: "proxima_nova_semibold";
     text-transform: uppercase;
     line-height: 17px;
 }
@@ -123,7 +123,7 @@ div {
 
 #site-title {
     color: #1f9c6e;
-    font-family: "proxima_nova_ltsemibold";
+    font-family: "proxima_nova_semibold";
     text-transform: capitalize;
 }
 
@@ -146,6 +146,6 @@ div {
     background-color: #f3f3f3;
     margin-top: 10px;
     padding: 15px;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 15px;
 }
