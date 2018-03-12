@@ -1,9 +1,11 @@
 {
-    "root url": "privacy policy url",
-    "https://twitter.com": "https://twitter.com/en/privacy", 
-    "https://www.blueapron.com/": "https://www.blueapron.com/pages/privacy",
-    "https://www.google.ca/": "https://www.google.ca/intl/en_ca/policies/privacy/?fg=1",
-    "http://www.dictionary.com/e/": "http://www.dictionary.com/e/terms/",
-    "https://github.com/": "https://help.github.com/articles/github-privacy-statement/",
-    "https://stackexchange.com/": "https://stackexchange.com/legal/privacy-policy",
+"http://www.dictionary.com/e/": "http://www.dictionary.com/e/terms/",
+"https://github.com/": "https://help.github.com/articles/github-privacy-statement/",
+"https://news.ycombinator.com/": "http://www.ycombinator.com/legal/",
+"https://stackexchange.com/": "https://stackexchange.com/legal/privacy-policy",
+"https://twitter.com": "https://twitter.com/en/privacy",
+"https://www.blueapron.com/": "https://www.blueapron.com/pages/privacy",
+"https://www.google.ca/": "https://www.google.ca/intl/en_ca/policies/privacy/?fg=1",
+"https://www.nytimes.com/": "https://help.nytimes.com/hc/en-us/articles/115014892108-Privacy-policy"
+"https://www.reddit.com/": "https://www.reddit.com/help/privacypolicy",
 }
