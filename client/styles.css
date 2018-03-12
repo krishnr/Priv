@@ -27,6 +27,7 @@ div {
 
 .title { 
     padding-bottom: 10px;
+    line-height: 28px;
 }
 .summary {
     background-color: #ffffff;
@@ -59,6 +60,7 @@ div {
     font-size: 14px;
     font-family: "proxima_nova_semibold";
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .button:focus {
