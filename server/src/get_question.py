@@ -6,7 +6,7 @@ def get_question(dim):
     "Do Not Track": "Ignores Do Not Track?",
     "Security": "Insecure data storage?",
     "Retention": "Retains data indefinitely?",
-    "Action": "Does not allow user choice/opt out?",
+    "Action": "Prohibits user choice/opt out?",
     "Location": "Tracks my location?",
     "Payment": "Collects my payment information?",
     "Disclosure": "Discloses information for legal purposes?",
