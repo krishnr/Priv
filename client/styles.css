@@ -1,10 +1,11 @@
 body {
-    width: 350px;
+    width: 360px;
     min-height: 490px;
     margin: 10px;
     white-space: nowrap;
     font-family: 'Proxima Nova', Georgia, sans-serif;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 35px 10px 35px;
+    position: relative;
 }
 
 h1 {
@@ -29,23 +30,28 @@ div {
 }
 .summary {
     background-color: #ffffff;
-    margin: 0px;
 }
 
 .cta {
     margin-top: 10px;
     text-align: center;
+    display: block;
+    width: 146px;
+    left: 50%;
+    margin-left: -75px;
+    height: 60px;
+    position: absolute;
+    bottom: 10px;
+}
 
+.action {
+    position: relative;
 }
 
 .button {
-    display: block;
-    position: absolute;
-    left: 50%;
-    margin-left: -70px;
-    bottom: 65px;
     width: 146px;
-	height: 40px;
+    height: 40px;
+    bottom: 20px;
 	border-radius: 20px;
 	background-color: #1f9c6e;
     color: white;
@@ -60,18 +66,16 @@ div {
 }
 
 .button:hover {
+    color: white;
     background-color: #08af73;   
 }
 
 
 .parent {
-    margin-top: 20px;
     white-space: normal;
-    padding: 0px 12px 12px 12px;
-}
-
-/* question answer */
-.topic {
+    position: relative;
+    width: 100%;
+    margin: 0px 0px 70px 0px;
 }
 
 .topic p {
@@ -80,12 +84,19 @@ div {
 
 .question {
     font-family: "proxima_nova_ltsemibold";
+    display: inline-block;
+    max-width: 280px;
 }
 
 .answer {
     float: right;
     font-family: "proxima_nova_ltsemibold";
     text-transform: uppercase;
+    line-height: 17px;
+}
+
+.double-line-height {
+    line-height: 34px;
 }
 
 .clear {
@@ -121,10 +132,20 @@ div {
     position: absolute;
     left: 50%;
     margin-left: -45px;
-    bottom: 32px;
+    bottom: 0px;
     font-style: italic;
 }
 
 .priv {
     color:  #1f9c6e;
+}
+
+/* dropwdown */
+.dropdown {
+    display: block;
+    background-color: #f3f3f3;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 13px;
+    line-height: 15px;
 }

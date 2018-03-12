@@ -53,17 +53,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Response format:
+// "summary": {
+//   "question": ["answer", "specific text machine learning algorithm identified"],
+//   },
+// "action": "clickety click motherfuckers"
+// }
 function displayPrivacySummary(page_url) {
   var xhr = new XMLHttpRequest();
   var domain = getDomain(page_url);
 
   // Change to localhost below in order to run on development server
-  xhr.open("GET", "http://ec2-18-219-251-103.us-east-2.compute.amazonaws.com:80/summarize?hostname=" + domain, true);
+  // xhr.open("GET", "http://ec2-18-219-251-103.us-east-2.compute.amazonaws.com:80/summarize?hostname=" + domain, true);
+  xhr.open("GET", "http://localhost:80/summarize?hostname=" + domain, true);
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        var res = JSON.parse(xhr.response);
-
+        var res = JSON.parse(xhr.response); // comment back in when backend returns this format of response
         formatSummary(res['summary']);
         formatAction(res['action']);
       } else {
@@ -87,17 +93,18 @@ function getDomain(url) {
 }
 
 function formatSummary(data) {
+  var answer_yes = '<span class="answer yes">Yes</span>';
+  var answer_no = '<span class="answer no">No</span>';
+  var answer_maybe = '<span class="answer maybe">Maybe</span>';
+
   Object.keys(data).forEach(function(key, index) {
     var question = '<span class="question">' + key + '</span>';
-    var answer_yes = '<span class="answer yes">Yes</span>';
-    var answer_no = '<span class="answer no">No</span>';
-    var answer_maybe = '<span class="answer maybe">Maybe</span>';
 
     paragraph = document.createElement('p');
     paragraph.className = 'clear';
     paragraph.innerHTML = question;
 
-    switch(this[key]) {
+    switch(this[key][0]) {
       case 'yes':
           paragraph.innerHTML += answer_yes;
           break;
@@ -109,6 +116,13 @@ function formatSummary(data) {
       default:
           // Unsupported answer
     }
+
+    // adjust heights for two-line sentences
+    if (key.length > 45) {
+      paragraph.lastChild.className += ' double-line-height';
+    }
+
+    createDropdown(paragraph, this[key][1], index);
 
     var items = document.getElementById("items");
     items.appendChild(paragraph);
@@ -126,8 +140,32 @@ function defaultDisplay(domain) {
   // remove action button
   var action = document.getElementById("action");
   action.style.display = 'none';
+  // hide summary space
+  var cta = document.getElementsByClassName("parent")[0];
+  cta.style.margin = '0px';
+  // hide container
+  var cta = document.getElementsByClassName("cta")[0];
+  cta.style.height = '14px';
   // make window smaller
   var body = document.getElementById("body");
   body.style.minHeight = '120px';
+}
 
+function createDropdown(paragraph, content, index) {
+  dropdown = document.createElement('div');
+  dropdown.id = "dropdown-" + index;
+  dropdown.className = "dropdown";
+  dropdown.innerHTML = content;
+  dropdown.style.display = 'none';
+
+  paragraph.appendChild(dropdown);
+  // toggle display on click, ugh I wish I used react now
+  paragraph.addEventListener('click', function() {
+    dropdown_click = document.getElementById("dropdown-"+index);
+    if (dropdown_click.style.display == 'none') {
+      dropdown_click.style.display = 'block';
+    } else {
+      dropdown_click.style.display = 'none';
+    }
+  });
 }
