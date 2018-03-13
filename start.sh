@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-remove_image=0
+remove_images=0
 
 usage()
 {
@@ -8,14 +8,14 @@ usage()
     bash start.sh [options]
 
     General Options:
-    -r, --remove_image                 Removes Docker image and rebuilds image from scratch
+    -r, --remove_images                 Removes Docker images and mounted volumes, then rebuilds images from scratch
     "
 }
 
 
 while [ "$1" != "" ]; do
     case $1 in
-        -r | --remove_image )   remove_image=1
+        -r | --remove_images )   remove_images=1
                                 ;;
         -h | --help )           usage
                                 exit
@@ -23,28 +23,20 @@ while [ "$1" != "" ]; do
     shift
 done
 
-# Start server container
-echo "Starting server"
-cd server
+# Remove any dangling images
+docker rmi $( docker images -q -f dangling=true) 2> /dev/null >/dev/null
 
-# Check if image exists
-if [[ $(docker image inspect priv-server-image:latest 2> /dev/null >/dev/null ; echo $?) != "0" ]]; then
-    # NOTE: If any changes are made to directories other than pickles/ and src/, the image must be rebuilt
-    # In that case, delete the existing image using docker rmi priv-server-image, and run this script
-    echo "Building server image"
-    bash build-image.sh
+# NOTE: If any changes are made to directories other than pickles/ and src/, the image must be rebuilt
+# In that case, pass in the flags -r or --remove_images
+
+if [ "$remove_images" = "1" ]; then
+    # Remove any images, running containers and volumes
+    echo "Removing images"
+    docker-compose down -v --rmi all
 fi
 
-# Remove any running containers
-docker rm -f $(docker ps -a -q --filter name=priv-server) 2>/dev/null
+# To customize running the server, make changes to server/src/prestart.sh script (i.e. adding --headless or --test)
+docker-compose up -d --force-recreate
 
-if [ "$remove_image" = "1" ]; then
-    docker rmi priv-server-image
-    bash build-image.sh
-fi
-
-# To customize running the server, make changes to /src/prestart.sh script (i.e. adding --headless or --test)
-bash container-run.sh
-
-echo "Tailing logs"
-docker logs -f $(docker ps -a -q --filter name=priv-server)
+echo "Tailing server logs"
+docker logs -f $(docker ps -a -q --filter name=priv_server)

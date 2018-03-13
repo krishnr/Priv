@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+#  redis:
+#    image: 'redis:3.0-alpine'
+#    command: redis-server --requirepass devpassword
+#    volumes:
+#      - 'redis:/data'
+#    ports:
+#      - '6379:6379'
+
+  server:
+    build: ./server
+    volumes:
+      - './server/src:/app/src'
+      - './server/pickles:/app/pickles'
+    ports:
+      - '80:80'
+
+#  celery:
+#    build: .
+#    command: celery worker -l info -A snakeeyes.blueprints.contact.tasks
+#    volumes:
+#      - '.:/snakeeyes'
+
+volumes:
+  redis:
