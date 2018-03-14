@@ -2,15 +2,28 @@
 @font-face {
     font-family: 'Proxima Nova';
     src: url('ProximaNova-Regular.ttf') format('truetype');
+    font-size: 14px;
     font-weight: normal;
     font-style: normal;
+    font-stretch: normal;
 
 }
 
 @font-face {
     font-family: 'proxima_nova_semibold';
     src: url('ProximaNova-Semibold.ttf') format('truetype');
-    font-weight: lighter;
+    font-size: 14px;
+    font-weight: 600;
     font-style: normal;
+    font-stretch: normal;
 
+}
+
+@font-face {
+    font-family: 'proxima_nova_extrabold';
+    src: url('ProximaNova-Extrabold.ttf') format('truetype');
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
 }

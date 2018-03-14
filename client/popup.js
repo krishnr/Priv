@@ -98,7 +98,7 @@ function formatSummary(data) {
   var answer_maybe = '<span class="answer maybe">Maybe</span>';
 
   Object.keys(data).forEach(function(key, index) {
-    var question = '<span class="question">' + key + '</span>';
+    var question = '<a class="question" href="#">' + key + '</a>';
 
     paragraph = document.createElement('p');
     paragraph.className = 'clear';
@@ -137,6 +137,9 @@ function defaultDisplay(domain) {
   // page title
   var title = document.getElementById("title");
   title.innerHTML = "We don't currently have information about the " + "<span id='site-title'>" + domain + "</span> privacy policy!";
+  // remove action button
+  var question_prompt = document.getElementById("question-prompt");
+  question_prompt.style.display = 'none';
   // remove action button
   var action = document.getElementById("action");
   action.style.display = 'none';
