@@ -111,3 +111,6 @@ Intellij Files
 datasets/
 pickles/
 .vscode/
+
+*.crx
+*.pem

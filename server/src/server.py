@@ -2,10 +2,11 @@ from flask import Flask, jsonify, request
 from sklearn.externals import joblib
 from collections import Counter
 import pickle
-from . import get_policies
+from .get_policies import get_policy
 import os.path
 from operator import itemgetter
-from . import get_question
+from .questions_copy import get_question
+from .questions_copy import get_question_desc
 import nltk
 
 nltk.download('punkt')
@@ -30,7 +31,7 @@ def summarize():
     print(hostname)
 
     # Find the right file based on the website we're on
-    policy = get_policies.get_policy(hostname)
+    policy = get_policy(hostname)
     dim_clf = joblib.load(os.path.join(curr_folder, '../pickles/dim_clf.pkl'))
     ans_clfs = joblib.load(os.path.join(curr_folder, '../pickles/ans_clfs.pkl'))
 
@@ -49,12 +50,13 @@ def summarize():
     predictions = sorted(predictions, key=itemgetter(2))
     predictions = predictions[::-1]
     
-    # get up to 7 different dimensions
+    # get up to num_dims different dimensions
+    num_dims = 22
     top_preds = []
     score = 1
     i = 0
     dims = []
-    while len(top_preds) < 7 and score > 0.5 and i < len(predictions):
+    while len(top_preds) < 22 and score > 0.5 and i < len(predictions):
         score = predictions[i][2]
         dim = predictions[i][1]
         if dim not in dims:
@@ -77,10 +79,11 @@ def summarize():
     
     # construct output
     for pred in top_preds:
-        question = get_question.get_question(pred[1])
+        question = get_question(pred[1])
+        question_desc = get_question_desc(pred[1])
         ans = pred[3]
         raw_text = pred[4]
-        output["summary"][question] = [ans, raw_text]
+        output["summary"][question] = [ans, question_desc, raw_text]
     
     print(output)
     return jsonify(output)
