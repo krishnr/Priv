@@ -25,6 +25,11 @@ div {
     word-wrap: break-all;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .title { 
     padding-bottom: 10px;
     line-height: 28px;
@@ -85,9 +90,18 @@ div {
 }
 
 .question {
+    width: 200px;
+    height: 16px;
     font-family: "proxima_nova_semibold";
-    display: inline-block;
-    max-width: 280px;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121b1f;
+}
+
+.question:hover {
+    text-decoration: underline;
 }
 
 .answer {
@@ -112,15 +126,32 @@ div {
 }
 
 .yes {
-    color: #e1990d;
+    width: 25px;
+    height: 14px;
+    font-family: "proxima_nova_extrabold";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #00608a;
 }
 
 .no {
-    color: #1f9c6e;
+    width: 20px;
+    height: 14px;
+    font-family: "proxima_nova_extrabold";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #68a7c3;
 }
 
 .maybe {
-    color: grey;
+    width: 46px;
+    height: 14px;
+    font-family: "proxima_nova_extrabold";
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #888c8c;
 }
 
 #site-title {
@@ -136,6 +167,17 @@ div {
     margin-left: -45px;
     bottom: 0px;
     font-style: italic;
+}
+
+.question-prompt {
+
+    height: 14px;
+    font-family: "Proxima Nova";
+    font-weight: normal;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #121b1f;
 }
 
 .priv {

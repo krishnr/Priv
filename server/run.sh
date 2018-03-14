@@ -28,10 +28,6 @@ create_train_transform_sets()
 
 clean()
 {
-    if [ -f pickles/*.pkl ]; then
-        echo "removing pickles"
-        rm /pickles/*.pkl
-    fi
     create_train_transform_sets
 }
 
@@ -47,9 +43,9 @@ start()
 
     if [ "$headless" = "1" ]; then
         echo "Running headless"
-        docker exec priv-server python3 src/run.py
+        python3 src/run.py &
     else
-        docker exec -it priv-server python3 src/run.py
+        python3 src/run.py
     fi
 }
 
