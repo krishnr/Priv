@@ -30,8 +30,7 @@ a {
     color: inherit;
 }
 
-.title { 
-    padding-bottom: 10px;
+.title {
     line-height: 28px;
 }
 .summary {
@@ -90,14 +89,15 @@ a {
 }
 
 .question {
-    width: 200px;
+    width: 230px;
     height: 16px;
     font-family: "proxima_nova_semibold";
     font-weight: 600;
-    line-height: normal;
+    line-height: 18px;
     letter-spacing: normal;
     text-align: left;
     color: #121b1f;
+    display: inline-block;
 }
 
 .question:hover {
@@ -126,31 +126,25 @@ a {
 }
 
 .yes {
-    width: 25px;
     height: 14px;
     font-family: "proxima_nova_extrabold";
     line-height: normal;
     letter-spacing: 0.8px;
-    text-align: center;
     color: #00608a;
 }
 
 .no {
-    width: 20px;
     height: 14px;
     font-family: "proxima_nova_extrabold";
     line-height: normal;
     letter-spacing: 0.8px;
-    text-align: center;
     color: #68a7c3;
 }
 
 .maybe {
-    width: 46px;
     height: 14px;
     font-family: "proxima_nova_extrabold";
     letter-spacing: 0.8px;
-    text-align: center;
     color: #888c8c;
 }
 
@@ -179,6 +173,27 @@ a {
     text-align: left;
     color: #121b1f;
 }
+.question-description {
+    font-family: "proxima_nova_semiboldIt";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #121b1f;
+    padding-bottom: 16px;
+}
+
+.policy_header {
+    font-family: "proxima_nova_semibold";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #121b1f;
+    padding-bottom: 8px;
+}
+
+.policy {
+    width: 358px;
+}
 
 .priv {
     color:  #1f9c6e;
@@ -188,8 +203,13 @@ a {
 .dropdown {
     display: block;
     background-color: #f3f3f3;
-    margin-top: 10px;
-    padding: 15px;
-    font-size: 14px;
+    margin-top: 11px;
+    padding-top:16px;
+    padding-bottom:16px;
+    /*padding: 15px;*/
+    font-size: 12px;
     line-height: 15px;
+    margin-left: calc(50% - 50vw);
+    width: 100vw;
+    padding-left: calc(50vw - 50%);
 }
