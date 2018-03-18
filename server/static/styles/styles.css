@@ -1,0 +1,211 @@
+body {
+    width: 50%;
+    margin: auto;
+    min-height: 490px;
+    white-space: nowrap;
+    font-family: 'Proxima Nova', Georgia, sans-serif;
+    padding: 10px 35px 10px 35px;
+    position: relative;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 14px;
+}
+
+div {
+    word-wrap: break-all;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.title {
+    line-height: 28px;
+}
+.summary {
+    background-color: #ffffff;
+}
+
+.cta {
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+    width: 146px;
+    left: 50%;
+    margin-left: -75px;
+    height: 60px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.action {
+    position: relative;
+}
+
+.button {
+    width: 146px;
+    height: 40px;
+    bottom: 20px;
+	border-radius: 20px;
+	background-color: #1f9c6e;
+    color: white;
+    line-height: 42px;
+    font-size: 14px;
+    font-family: "proxima_nova_semibold";
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;    
+}
+
+.button:hover {
+    color: white;
+    background-color: #08af73;   
+}
+
+
+.parent {
+    white-space: normal;
+    position: relative;
+    width: 100%;
+    margin: 0px 0px 70px 0px;
+}
+
+.topic p {
+    padding-bottom: 5px;
+}
+
+.question {
+    width: 420px;
+    height: 16px;
+    font-family: "proxima_nova_semibold";
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121b1f;
+    display: inline-block;
+}
+
+.question:hover {
+    text-decoration: underline;
+}
+
+.answer {
+    float: right;
+    font-family: "proxima_nova_semibold";
+    text-transform: uppercase;
+    line-height: 17px;
+}
+
+.double-line-height {
+    line-height: 34px;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.yes {
+    height: 14px;
+    font-family: "proxima_nova_extrabold";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    color: #00608a;
+}
+
+.no {
+    height: 14px;
+    font-family: "proxima_nova_extrabold";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    color: #68a7c3;
+}
+
+.maybe {
+    height: 14px;
+    font-family: "proxima_nova_extrabold";
+    letter-spacing: 0.8px;
+    color: #888c8c;
+}
+
+#site-title {
+    color: #1f9c6e;
+    font-family: "proxima_nova_semibold";
+    text-transform: capitalize;
+}
+
+.powered-by {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -45px;
+    bottom: 0px;
+    font-style: italic;
+}
+
+.question-prompt {
+
+    height: 14px;
+    font-family: "Proxima Nova";
+    font-weight: normal;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #121b1f;
+}
+.question-description {
+    font-family: "proxima_nova_semiboldIt";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #121b1f;
+    padding-bottom: 16px;
+}
+
+.policy_header {
+    font-family: "proxima_nova_semibold";
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #121b1f;
+    padding-bottom: 8px;
+}
+
+.policy {
+}
+
+.priv {
+    color:  #1f9c6e;
+}
+
+/* dropwdown */
+.dropdown {
+    display: block;
+    background-color: #f3f3f3;
+    margin-top: 11px;
+    padding-top:16px;
+    padding-bottom:16px;
+    padding: 15px;
+    font-size: 12px;
+    line-height: 15px;
+}

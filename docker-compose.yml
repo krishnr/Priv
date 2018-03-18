@@ -14,6 +14,7 @@ services:
     volumes:
       - './server/src:/app/src'
       - './server/pickles:/app/pickles'
+      - './server/static:/app/static'
     ports:
       - '80:80'
 
