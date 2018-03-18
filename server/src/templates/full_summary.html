@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Priv - privacy, summarized</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <script src="{{ url_for('static',filename='scripts/popup.js') }}"></script>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/fonts.css') }}" />
+  </head>
+
+  <body id="body">
+    <div class="parent">
+      <div class="title">
+        <h2 id="title">Here's the full summary of the <span id="site-title">{{hostname}}</span> privacy policy.</h2>
+      </div>
+
+      <div class="summary">
+        <div id="items" class="topic spacing">
+          {% for question, list in summary.items() %}
+            {% set answer = list[0] %}
+            {% set description = list[1] %}
+            {% set raw_text = list[2] %}
+            
+            <p class="clear">
+              <span class="question"><a href="#"> {{question}} </a></span>
+              {% if answer == 'yes' %}
+                <span class="answer yes">Yes</span>
+              {% elif answer == 'no' %}
+                <span class="answer no">No</span>
+              {% elif answer == 'maybe' %}
+                <span class="answer maybe">Maybe</span>
+              {% endif %}
+                <div class="dropdown">
+                  <div class="question-description">
+                    {{description}}
+                  </div>
+                  <div class="policy_header">
+                    Quote from Privacy Policy
+                  </div>
+                  <div class="policy">
+                    {{raw_text}}
+                  </div>
+                </div>
+            </p>
+            
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="cta">
+        <div class="powered-by">
+            powered by <span class="priv">PRIV</span>
+        </div>
+    </div>
+  </body>
+</html>
