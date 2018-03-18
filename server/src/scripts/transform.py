@@ -31,7 +31,7 @@ def get_dimension(label, dimension):
     - Contact Info
     - Personal Info
     - 3P Analysis
-    - 1P Analaysis
+    - 1P Analysis
     - 3P Collection
     - 1P Collection
     - Cookies
