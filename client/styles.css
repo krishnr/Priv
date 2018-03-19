@@ -103,13 +103,13 @@ a {
 
 .answer {
     float: right;
-    font-family: "proxima_nova_semibold";
+    font-family: "proxima_nova_extrabold";
     text-transform: uppercase;
-    line-height: 17px;
+    line-height: 18px;
 }
 
 .double-line-height {
-    line-height: 34px;
+    line-height: 36px;
 }
 
 .clear {
@@ -124,23 +124,18 @@ a {
 
 .yes {
     height: 14px;
-    font-family: "proxima_nova_extrabold";
-    line-height: normal;
     letter-spacing: 0.8px;
     color: #00608a;
 }
 
 .no {
     height: 14px;
-    font-family: "proxima_nova_extrabold";
-    line-height: normal;
     letter-spacing: 0.8px;
     color: #68a7c3;
 }
 
 .maybe {
     height: 14px;
-    font-family: "proxima_nova_extrabold";
     letter-spacing: 0.8px;
     color: #888c8c;
 }

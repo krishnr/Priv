@@ -119,7 +119,7 @@ function formatSummary(data) {
     }
 
     // adjust heights for two-line sentences
-    if (key.length > 45) {
+    if (key.length > 40) {
       paragraph.lastChild.className += ' double-line-height';
     }
 
