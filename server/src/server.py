@@ -74,7 +74,7 @@ def summarize():
     
     output = {
         "summary": {},
-        "action": "http://ec2-18-218-179-92.us-east-2.compute.amazonaws.com:80/full_summary/".format(hostname)
+        "action": "http://ec2-18-218-179-92.us-east-2.compute.amazonaws.com:80/full_summary/{}".format(hostname)
     }
     
     # construct output
