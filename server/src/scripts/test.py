@@ -21,9 +21,6 @@ with open(os.path.join(curr_folder, '../../datasets/dim_data.p'), 'rb') as handl
 dim_clf = joblib.load(os.path.join(curr_folder, '../../pickles/dim_clf.pkl'))
 ans_clfs = joblib.load(os.path.join(curr_folder, '../../pickles/ans_clfs.pkl'))
 
-print(len(X_train))
-print(len(X_test))
-
 score = dim_clf.score(X_test, y_test)
 print("Dimension classifier accuracy: %.3f" % score)
 y_pred = dim_clf.predict(X_test)

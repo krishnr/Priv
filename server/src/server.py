@@ -19,11 +19,10 @@ def is_valid_line(line):
     # Assuming a heading (which we want to ignore) is less than 50 chars
     return len(line) > 100
 
-
 def tokenize_into_sentences(policy):
     pp_lines = nltk.sent_tokenize(policy)
+    pp_lines = [x for x in pp_lines if is_valid_line(x)]
     return pp_lines
-
 
 @app.route("/summarize")
 def summarize():
