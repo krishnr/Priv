@@ -66,7 +66,7 @@ function displayPrivacySummary(page_url) {
 
   // Change to localhost below in order to run on development server
   //xhr.open("GET", "http:localhost:80/summarize?hostname=" + domain, true);
-  xhr.open("GET", "http://ec2-18-218-179-92.us-east-2.compute.amazonaws.com:80/summarize?hostname=" + domain, true);
+  xhr.open("GET", "http://mypriv.ca/summarize?hostname=" + domain, true);
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
