@@ -23,6 +23,10 @@ while [ "$1" != "" ]; do
     shift
 done
 
+# Copy env file to server/src/util
+echo "Copying environment file"
+cp ./.env ./server/src/util/
+
 # Remove any dangling images
 docker rmi $( docker images -q -f dangling=true) 2> /dev/null >/dev/null
 

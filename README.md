@@ -15,6 +15,13 @@ Visit [here](https://store.docker.com/search?type=edition&offering=community) fo
 
 Change the xhr request in `client/popup.js` from the `amazonaws.com` domain to `localhost:80/`
 
+**NOTE:** You will require a `.env` file containing the Postgresql authentication tokens in order to run the application
+in Priv root. The file must be of the format:
+```
+POSTGRES_USER=xxxxxx
+POSTGRES_PASSWORD=xxxxxxx
+POSTGRES_DB=xxxxx
+```
 
 Once you have Docker installed, simply run `bash start.sh`
 

@@ -9,14 +9,24 @@ services:
 #    ports:
 #      - '6379:6379'
 
+  db:
+    restart: always
+    image: postgres
+    ports:
+      - '5432:5432'
+    env_file: .env
+
   server:
     build: ./server
     volumes:
       - './server/src:/app/src'
       - './server/pickles:/app/pickles'
       - './server/static:/app/static'
+      - './server/util:/app/util'
     ports:
       - '80:80'
+    depends_on:
+      - db
 
 #  celery:
 #    build: .
