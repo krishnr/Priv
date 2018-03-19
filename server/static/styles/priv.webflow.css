@@ -1,0 +1,92 @@
+.image {
+  text-align: center;
+}
+
+.div-block {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.h1 {
+  margin-top: 30px;
+  font-family: 'Proxima Nova', sans-serif;
+  color: #1f9c6e;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.caption {
+  margin-top: 16px;
+  font-family: 'Proxima Nova', sans-serif;
+  color: #9ca3a2;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.body {
+  display: block;
+  width: 400px;
+  margin-top: 24px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'Proxima Nova', sans-serif;
+  color: #121b1f;
+  text-align: justify;
+}
+
+.button {
+  margin-top: 24px;
+  padding: 12px 20px;
+  border-radius: 100px;
+  background-color: #1f9c6e;
+  font-family: 'Proxima Nova', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #1f7e5b;
+}
+
+@media (max-width: 479px) {
+  .div-block {
+    margin-top: 40px;
+  }
+  .h1 {
+    margin-top: 24px;
+    font-size: 30px;
+  }
+  .caption {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+  .body {
+    width: auto;
+  }
+  .container {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova-Extrabold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
