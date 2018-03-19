@@ -3,7 +3,7 @@
 
   "name": "Priv",
   "description": "Privacy simplified",
-  "version": "0.1",
+  "version": "0.11",
 
   "browser_action": {
     "default_icon": "icon.png",
