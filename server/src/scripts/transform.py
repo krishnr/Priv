@@ -19,22 +19,21 @@ def get_dimension(label, dimension):
     - Do Not Track
     - Security
     - Retention
-    - Action
+    - Opt Out
+    - Request
     - Location
     - Payment
     - Disclosure
-    - Health
     - Activity
     - Deletion
     - Social Media
     - Personalization
     - Contact Info
-    - Personal Info
-    - 3P Analysis
-    - 1P Analysis
-    - 3P Collection
-    - 1P Collection
+    - Analysis
+    - 3P Sharing
+    - Collection
     - Cookies
+    - Log Files
     """
 
     # Map of OPP 115 dimensions (not used anywhere--just for reference)
@@ -55,71 +54,77 @@ def get_dimension(label, dimension):
     #### Rules for assigning labels to Priv dimensions
 
     
-    if 'targeted advertising' in label.lower():
+    if any(s in label.lower() for s in ['request a list', 'request access', 'request a description', 'request a record', 'request a copy', 'request a notice']):
+        return 'Request'
+
+    if any(s in label.lower() for s in ['targeted ad', 'targeting', 'targeted marketing', 'target ad', 'tailored ad', 'tailor offers', 'tailor ad']) \
+        or all(s in label.lower() for s in ['ad', 'target']):
         return 'Targeted Advertising'
     
-    if any(s in label.lower() for s in ['change', 'update', 'notif']) or dimension == 'Policy Change':
+    if dimension == 'Policy Change':
         return 'Policy Change'
 
-    if dimension == 'Do Not Track':
+    if all(s in label.lower() for s in ['respond', 'do not track']) \
+        or dimension == 'Do Not Track':
         return 'Do Not Track'
     
-    if dimension == 'Data Security':
+    if any(s in label.lower() for s in ['encrypt', 'ssl connection', 'secure socket layers']):
         return 'Security'
-    
-    if dimension == 'Data Retention' or 'is retained' in label.lower():
+
+    if dimension == 'Data Retention' or any(s in label.lower() for s in ['is retained', 'retain indefinitely']):
         return 'Retention'
     
-    if any(s in label.lower() for s in ['opt out', 'link', 'configuration', 'their information', 'deactivate', 'settings', 'choice', 'access', 'choose not to use', 'contact the company']):
-        return 'Action'
-    
-    if 'location' in label.lower():
+    if any(s in label.lower() for s in ['keep some data', 'comprehensive removal', 'removal of information', 'retaining some residual']):
+        return 'Deletion'
+
+    if any(s in label.lower() for s in ['opt out', 'privacy settings', 'configuration settings']):
+        return 'Opt Out'
+
+    if any(s in label.lower() for s in ['geographic location', 'location information', 'physical location', 'location data', 'current location']):
         return 'Location'
 
-    if any(s in label.lower() for s in ['financial', 'payment']):
+    if any(s in label.lower() for s in ['financial information', 'payment information', 'credit card information']):
         return 'Payment'
     
-    if any(s in label.lower() for s in ['legal', 'law']):
+    if any(s in label.lower() for s in ['good faith', 'subpoena', 'court order', \
+        'government demand', 'law enforcement', 'search warrant', 'legal action', \
+        'compelled by', 'legal request', 'legal process', 'law-enforcement']):
         return 'Disclosure'
-    
-    if 'health' in label.lower():
-        return 'Health'
-    
-    if 'activities' in label.lower():
-        return 'Activity'
 
-    if all(s in label.lower() for s in ['delete', 'account']):
-        return 'Deletion'
+    if any(s in label.lower() for s in ['before coming', 'before our', 'referring',\
+        'exit pages', 'previous website', 'you came from']):
+        return 'Activity'
     
-    if 'social media' in label.lower():
+    if any(s in label.lower() for s in ['social media', 'social network ', \
+        'via facebook', 'via your facebook', 'like facebook', \
+        'third party social networking', 'third-party social networking']):
         return 'Social Media'
     
     if any(s in label.lower() for s in ['ip address', 'device id']):
         return 'Identification'
     
-    if any(s in label.lower() for s in ['personalization', 'customization']):
+    if any(s in label.lower() for s in ['personalization', 'customization', \
+        'personalize and enhance', 'customize and enhance', 'tailored to your interests' \
+        'tailored content', 'tailored to you', 'tailor your experience']):
         return 'Personalization'
+    
+    if any(s in label.lower() for s in ['log file', ' logs ', 'log information', 'log certain', 'complete log']):
+        return 'Log Files'
 
-    if 'contact information' in label.lower():
+    if any(s in label.lower() for s in ['collects your contact info', 'collect your contact info', 'receive your contact info', 'use of contact info']):
         return 'Contact Info'
 
-    if any(s in label.lower() for s in ['demographic', 'identifiable', 'personal', 'profile']):
-        return 'Personal Info'
-
-    if any(s in label.lower() for s in ['analytics', 'research', 'aggregated', 'anonymized', 'survey']):
-        if 'third party' in label.lower():
-            return '3P Analysis'
-        else:
-            return '1P Analysis'
-
-    if 'cookies' in label.lower():
+    if any(s in label.lower() for s in ['cookies', 'web beacons', 'pixel tag']):
         return 'Cookies'
 
-    if any(s in label.lower() for s in ['collect', 'information about you', 'collection']):
-        if 'third party' in label.lower():
-            return '3P Collection'
-        else:
-            return '1P Collection'
+    if any(s in label.lower() for s in ['demographic','analytics', 'research', 'aggregated', 'anonymized']):
+        return 'Analysis'
+
+    if any(s in label.lower() for s in ['named third party', 'unnamed third party', 'unspecified third party', 'named service']):
+        return '3P Sharing'
+
+    if any(s in label.lower() for s in ['identifiable', 'profile information', 'personal information', 'collects your user profile']):
+        return 'Collection'
 
     return None
 
@@ -129,65 +134,74 @@ def get_answer(label, dimension):
     no_list = []
     maybe_list = []
     if dimension == 'Location':
-        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do']
-        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in']
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'can determine', 'use your device', 'using your current location', 'transmits location']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in']    
 
     if dimension == 'Identification':
-        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained', 'use IP', ]
         no_list = ['does not collect', 'does not receive', 'does not track']
     
     if dimension == 'Targeted Advertising':
-        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does see', 'does do']
-        no_list = ['does not collect', 'does not receive', 'does not track', 'does not do']
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does see', 'does do', 'we collect', 'may use', 'displays targeted']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'does not do', 'do not knowingly collect']
         
     if dimension == 'Policy Change':
-        yes_list = ['are notified', 'are personally notified']
-        no_list = ['no notification']
+        no_list = ['are notified', 'are personally notified']
+        yes_list = ['no notification']
         maybe_list = ['is posted as part of the policy']
     
     if dimension == 'Do Not Track':
-        yes_list = ['reads and adheres']
-        no_list = ['ignores', 'no statement']
+        no_list = ['reads and adheres']
+        yes_list = ['ignores', 'no statement']
         maybe_list = ['unclear', 'handles']
     
     if dimension == 'Security':
-        yes_list = ['encrypted', 'has a privacy or security program/organization', 'security practices', 'security measures']
-        no_list = ['not mentioned']
+        no_list = ['encrypted', 'adequate security and encryption', 'we use ssl encryption', 'encrypts transmission']
+        yes_list = ['not mentioned']
         maybe_list = ['generic security statements', 'specific security measure', 'need-to-know basis']
     
     if dimension == 'Retention':
-        yes_list = ['limited', 'stated']
+        no_list = ['limited', 'stated']
         maybe_list = ['unspecified duration', 'duration not covered']
-        no_list = ['indefinitely']
+        yes_list = ['indefinitely', 'as long as necessary']
         
-    if dimension == 'Action':
+    if dimension == 'Opt Out':
         no_list = ['can view', 'can edit', 'can configure', 'can choose', 'can access', 
-        'can use', 'can opt out', 'can deactivate', 'can make a choice', 'can export', 'contact']
+        'can use', 'can opt out', 'can deactivate', 'can make a choice', 'can export', 
+        'contact', 'send a letter', 'may opt out']
         yes_list = ['no specified choices', 'can not access']
     
+    if dimension == 'Request':
+        no_list = []
+        yes_list = ['may request', 'can request', 'contact us', 'request access', 'request a copy', 'permits','may also request']
+    
     if dimension == 'Payment':
-        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do']
-        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in']
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'be shared']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not handle', 'does not store', 'does not maintain']
 
     if dimension == 'Disclosure':
-        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
-        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in']
+        yes_list = ['without a subpoena', 'without first obtaining your permission', 'without notifying you', 'without providing notice', 'without your permission', 'without limitation']
+        no_list = []
         
-    if dimension == 'Health':
-        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
+    if dimension == '3P Sharing':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is accessible']
         no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do']
     
+    if dimension == 'Log Files':
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained','collected log information']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do']
+
     if dimension == 'Deletion':
-        yes_list = ['can delete']
-        no_list = ['can not delete']
+        no_list = ['can delete']
+        yes_list = ['can not delete', 'some residual information','may continue to keep some data', 'decline requests for removal']
         
     if dimension == 'Social Media':
-        yes_list = ['collects']
-        no_list = ['does not collect']
+        yes_list = ['collects', 'does collect', 'does receive', 'does track']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'do not record']
 
     if dimension == 'Personalization':
-        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
-        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do']
+        yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained', 'also personalize']
+        no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'not use']
         
     if dimension == 'Contact Info':
         yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
@@ -202,18 +216,18 @@ def get_answer(label, dimension):
         no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
         maybe_list = ['outside of our label scheme']
         
-    if dimension == '3P Analysis' or dimension == '1P Analysis':
+    if dimension == 'Analysis':
         yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
         no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
     
-    if dimension == '3P Collection' or dimension == '1P Collection':
+    if dimension == 'Collection':
         yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
         no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
     
     if dimension == 'Cookies':
         yes_list = ['collects', 'does collect', 'does receive', 'does track', 'does do', 'does see', 'is retained']
         no_list = ['does not collect', 'does not receive', 'does not track', 'can opt in', 'does not do', 'does not see']
-    
+
     if any(s in label.lower() for s in yes_list):
         return 'Yes'
     if any(s in label.lower() for s in no_list):
@@ -263,13 +277,13 @@ def build_dataset(a_file, l_file):
     for row in temp_list:
         raw_text = row['raw_text']
         label = label_dataset[row['annotation_id']]
-        dimension = get_dimension(label, row['dimension'])
+        dimension = get_dimension(raw_text + label, row['dimension'])
         
         # exclude datapoints that don't fit into our dimensions
         if not dimension:
             continue
         
-        answer = get_answer(label, dimension)
+        answer = get_answer(raw_text + label, dimension)
         dim_list.append(dimension)
         policy_data.append([row['raw_text'], label, dimension, answer])
 

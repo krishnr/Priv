@@ -61,6 +61,7 @@ def is_valid_line(line):
 
 def tokenize_into_sentences(policy):
     pp_lines = nltk.sent_tokenize(policy)
+    pp_lines = [x for x in pp_lines if is_valid_line(x)]
     return pp_lines
 
 
