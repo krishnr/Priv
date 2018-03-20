@@ -115,4 +115,4 @@ pickles/
 *.crx
 *.pem
 
-client/fonts/
+*fonts*
